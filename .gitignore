@@ -1,0 +1,66 @@
+# Thư mục chứa file build và output
+bin/
+obj/
+
+# Visual Studio tệp tạm thời, cache, và các file cấu hình người dùng
+.vscode/
+.vs/
+.vscode/*
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Các tệp dựng và gói
+*.buildlog
+*.log
+*.tlog
+*.pdb
+*.idb
+*.ipch
+
+# Các tệp dựng từ MSBuild và Roslyn
+*.pidb
+*.aps
+*.ncb
+*.opendb
+*.sdf
+*.ilk
+*.tmp
+*.vspscc
+*.vssscc
+
+# Các tệp khóa và log
+.lock.json
+log/
+*.log
+
+# Thư viện ngoại vi và tệp dựng
+*.dll
+*.exe
+*.obj
+*.so
+*.dylib
+*.lib
+*.a
+*.o
+*.lo
+
+# Thư mục publish và các tệp triển khai
+publish/
+out/
+AppPackages/
+
+# Các tệp nguồn và mã không cần thiết khác
+*.iobj
+*.ipdb
+*.tmp_proj
+
+# Tệp tạm thời của Visual Studio và build của MSBuild
+*.tmp
+*.csproj.user
+
+# Các tệp IDE khác của Visual Studio
+*.opensdf
+*.VC.db
+*.VC.opendb
