@@ -59,12 +59,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.dtgvLopHoc = new System.Windows.Forms.DataGridView();
+            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnDiemDanh = new System.Windows.Forms.Button();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -149,7 +149,7 @@
             // xuấtFileExcelToolStripMenuItem
             // 
             this.xuấtFileExcelToolStripMenuItem.Name = "xuấtFileExcelToolStripMenuItem";
-            this.xuấtFileExcelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xuấtFileExcelToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
             this.xuấtFileExcelToolStripMenuItem.Text = "Xuất file Excel";
             // 
             // lvDanhSachLop
@@ -214,6 +214,18 @@
             this.panel2.Size = new System.Drawing.Size(238, 94);
             this.panel2.TabIndex = 42;
             // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.txtTimKiem.ForeColor = System.Drawing.Color.Transparent;
+            this.txtTimKiem.Location = new System.Drawing.Point(14, 25);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(200, 31);
+            this.txtTimKiem.TabIndex = 4;
+            // 
             // dtgvLopHoc
             // 
             this.dtgvLopHoc.AllowUserToAddRows = false;
@@ -254,6 +266,15 @@
             this.dtgvLopHoc.Size = new System.Drawing.Size(818, 425);
             this.dtgvLopHoc.TabIndex = 41;
             // 
+            // Delete
+            // 
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete.HeaderText = "";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.Width = 6;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.lbThongTinLop);
@@ -279,6 +300,7 @@
             this.btnDiemDanh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDiemDanh.FlatAppearance.BorderSize = 0;
             this.btnDiemDanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiemDanh.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiemDanh.ForeColor = System.Drawing.Color.White;
             this.btnDiemDanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDiemDanh.Location = new System.Drawing.Point(28, 10);
@@ -290,27 +312,6 @@
             this.btnDiemDanh.Text = "Điểm danh";
             this.btnDiemDanh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDiemDanh.UseVisualStyleBackColor = false;
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtTimKiem.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.txtTimKiem.ForeColor = System.Drawing.Color.Transparent;
-            this.txtTimKiem.Location = new System.Drawing.Point(14, 25);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(200, 31);
-            this.txtTimKiem.TabIndex = 4;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete.HeaderText = "";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete.Width = 6;
             // 
             // formMain
             // 

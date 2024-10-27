@@ -37,12 +37,12 @@ CREATE TABLE BuoiDiemDanh (
 GO
 
 CREATE TABLE DiemDanh (
-    MaDiemDanh INT PRIMARY KEY IDENTITY(1,1),
     MaSinhVien NVARCHAR(50),
     MaBuoiDiemDanh INT,
     TrangThai INT, -- 1: Có mặt, 0: Vắng mặt
+	PRIMARY KEY (MaSinhVien, MaBuoiDiemDanh),
     FOREIGN KEY (MaSinhVien) REFERENCES SinhVien(MaSinhVien),
-    FOREIGN KEY (MaBuoiDiemDanh) REFERENCES BuoiDiemDanh(MaBuoiDiemDanh)
+	FOREIGN KEY (MaBuoiDiemDanh) REFERENCES BuoiDiemDanh(MaBuoiDiemDanh)
 );
 GO
 
