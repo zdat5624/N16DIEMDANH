@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\LopHocDAO.cs" />
+    <Compile Include="DAO\MonHocDAO.cs" />
+    <Compile Include="DTO\LopHoc.cs" />
+    <Compile Include="DTO\MonHoc.cs" />
     <Compile Include="formMain.cs">
       <SubType>Form</SubType>
     </Compile>

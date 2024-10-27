@@ -86,7 +86,7 @@
             this.xuatFileExcelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1074, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1074, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -96,7 +96,7 @@
             this.them1ToolStripMenuItem,
             this.them2ToolStripMenuItem});
             this.themToolStripMenuItem.Name = "themToolStripMenuItem";
-            this.themToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.themToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
             this.themToolStripMenuItem.Text = "Thêm";
             // 
             // them1ToolStripMenuItem
@@ -117,7 +117,7 @@
             this.xoa1ToolStripMenuItem,
             this.xoa2ToolStripMenuItem});
             this.xoaToolStripMenuItem.Name = "xoaToolStripMenuItem";
-            this.xoaToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.xoaToolStripMenuItem.Size = new System.Drawing.Size(49, 26);
             this.xoaToolStripMenuItem.Text = "Xóa";
             // 
             // xoa1ToolStripMenuItem
@@ -135,7 +135,7 @@
             // sửaToolStripMenuItem
             // 
             this.sửaToolStripMenuItem.Name = "sửaToolStripMenuItem";
-            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
+            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(48, 26);
             this.sửaToolStripMenuItem.Text = "Sửa";
             // 
             // xuatFileExcelToolStripMenuItem
@@ -143,7 +143,7 @@
             this.xuatFileExcelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xuấtFileExcelToolStripMenuItem});
             this.xuatFileExcelToolStripMenuItem.Name = "xuatFileExcelToolStripMenuItem";
-            this.xuatFileExcelToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.xuatFileExcelToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
             this.xuatFileExcelToolStripMenuItem.Text = "Xuất";
             // 
             // xuấtFileExcelToolStripMenuItem
@@ -171,7 +171,7 @@
             listViewItem7});
             this.lvDanhSachLop.Location = new System.Drawing.Point(0, 0);
             this.lvDanhSachLop.Name = "lvDanhSachLop";
-            this.lvDanhSachLop.Size = new System.Drawing.Size(238, 480);
+            this.lvDanhSachLop.Size = new System.Drawing.Size(238, 478);
             this.lvDanhSachLop.TabIndex = 1;
             this.lvDanhSachLop.TileSize = new System.Drawing.Size(500, 30);
             this.lvDanhSachLop.UseCompatibleStateImageBehavior = false;
@@ -191,9 +191,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(238, 574);
+            this.panel1.Size = new System.Drawing.Size(238, 572);
             this.panel1.TabIndex = 40;
             // 
             // panel3
@@ -202,7 +202,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 94);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(238, 480);
+            this.panel3.Size = new System.Drawing.Size(238, 478);
             this.panel3.TabIndex = 42;
             // 
             // panel2
@@ -279,7 +279,7 @@
             // 
             this.panel4.Controls.Add(this.lbThongTinLop);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(238, 28);
+            this.panel4.Location = new System.Drawing.Point(238, 30);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(836, 74);
             this.panel4.TabIndex = 42;
@@ -295,7 +295,7 @@
             // 
             // btnDiemDanh
             // 
-            this.btnDiemDanh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDiemDanh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDiemDanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(200)))));
             this.btnDiemDanh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDiemDanh.FlatAppearance.BorderSize = 0;
@@ -303,7 +303,7 @@
             this.btnDiemDanh.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiemDanh.ForeColor = System.Drawing.Color.White;
             this.btnDiemDanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiemDanh.Location = new System.Drawing.Point(28, 10);
+            this.btnDiemDanh.Location = new System.Drawing.Point(6, 10);
             this.btnDiemDanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDiemDanh.Name = "btnDiemDanh";
             this.btnDiemDanh.RightToLeft = System.Windows.Forms.RightToLeft.No;
