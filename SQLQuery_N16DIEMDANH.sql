@@ -14,7 +14,7 @@ GO
 CREATE TABLE MonHoc (
     MaMonHoc NVARCHAR(50) PRIMARY KEY,
     TenMonHoc NVARCHAR(100) NOT NULL,
-    SoTinChi INT NOT NULL
+    SoTinChi INT NOT NULL,
 );
 GO
 
@@ -67,25 +67,25 @@ GO
 
 
 INSERT INTO MonHoc (MaMonHoc, TenMonHoc, SoTinChi) VALUES
-('MH001', 'Lập trình C#', 3),
-('MH002', 'Cơ sở dữ liệu', 3),
-('MH003', 'Giải thuật và cấu trúc dữ liệu', 4),
-('MH004', 'Mạng máy tính', 3),
-('MH005', 'Hệ điều hành', 3),
-('MH006', 'Kiểm thử phần mềm', 2),
-('MH007', 'Phát triển web', 4),
-('MH008', 'Trí tuệ nhân tạo', 3);
+('MH001', N'Lập trình C#', 3),
+('MH002', N'Cơ sở dữ liệu', 3),
+('MH003', N'Giải thuật và cấu trúc dữ liệu', 4),
+('MH004', N'Mạng máy tính', 3),
+('MH005', N'Hệ điều hành', 3),
+('MH0066666666666666', N'Kiểm thử phần mềm', 2),
+('MH007', N'Phát triển web', 4),
+('MH008', N'Trí tuệ nhân tạo', 3);
 GO
 
 INSERT INTO LopHoc (MaMonHoc, TenLop, NgayBatDau, NgayKetThuc) VALUES
-('MH001', 'Lớp Lập trình C# 1', '2024-09-01', '2024-12-31'),
-('MH002', 'Lớp Cơ sở dữ liệu 1', '2024-09-01', '2024-12-31'),
-('MH003', 'Lớp Giải thuật 1', '2024-09-01', '2024-12-31'),
-('MH004', 'Lớp Mạng máy tính 1', '2024-09-01', '2024-12-31'),
-('MH005', 'Lớp Hệ điều hành 1', '2024-09-01', '2024-12-31'),
-('MH006', 'Lớp Kiểm thử phần mềm 1', '2024-09-01', '2024-12-31'),
-('MH007', 'Lớp Phát triển web 1', '2024-09-01', '2024-12-31'),
-('MH008', 'Lớp Trí tuệ nhân tạo 1', '2024-09-01', '2024-12-31');
+('MH001', N'Lớp Lập trình C# 1', '2024-09-01', '2024-12-31'),
+('MH002', N'Lớp Cơ sở dữ liệu 1', '2024-09-01', '2024-12-31'),
+('MH003', N'Lớp Giải thuật 1', '2024-09-01', '2024-12-31'),
+('MH004', N'Lớp Mạng máy tính 1', '2024-09-01', '2024-12-31'),
+('MH005', N'Lớp Hệ điều hành 1', '2024-09-01', '2024-12-31'),
+('MH0066666666666666', N'Lớp Kiểm thử phần mềm 1', '2024-09-01', '2024-12-31'),
+('MH007', N'Lớp Phát triển web 1', '2024-09-01', '2024-12-31'),
+('MH008', N'Lớp Trí tuệ nhân tạo 1', '2024-09-01', '2024-12-31');
 GO
 
 INSERT INTO SinhVien (MaSinhVien, HoTen) VALUES
@@ -227,3 +227,6 @@ WHERE
     svlh.MaLopHoc = @MaLopHoc
 ORDER BY 
     sv.MaSinhVien, bbd.STT;
+
+
+Select * from BuoiDiemDanh where MaLopHoc = '1' ORDER BY STT;

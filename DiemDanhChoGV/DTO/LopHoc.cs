@@ -15,8 +15,6 @@ namespace DiemDanhChoGV.DTO
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
 
-        public LopHoc() { }
-
         public LopHoc(int maLopHoc, string maMonHoc, string tenLop, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
             MaLopHoc = maLopHoc;

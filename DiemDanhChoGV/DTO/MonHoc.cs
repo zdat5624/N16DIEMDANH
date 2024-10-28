@@ -13,8 +13,6 @@ namespace DiemDanhChoGV.DTO
         public string TenMonHoc { get; set; }
         public int SoTinChi { get; set; }
 
-        public MonHoc() { }
-
         public MonHoc(string maMonHoc, string tenMonHoc, int soTinChi)
         {
             MaMonHoc = maMonHoc;

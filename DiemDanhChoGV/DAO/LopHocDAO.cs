@@ -11,6 +11,20 @@ namespace DiemDanhChoGV.DAO
 {
     public class LopHocDAO
     {
+        private static LopHocDAO instance;
+
+        // Phương thức truy cập Singleton
+        public static LopHocDAO Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new LopHocDAO();
+                return instance;
+            }
+            private set => instance = value;
+        }
+
         // Phương thức lấy danh sách lớp học
         public List<LopHoc> GetDanhSachLopHoc()
         {
@@ -20,14 +34,7 @@ namespace DiemDanhChoGV.DAO
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
-                LopHoc lopHoc = new LopHoc()
-                {
-                    MaLopHoc = (int)item["MaLopHoc"],
-                    MaMonHoc = item["MaMonHoc"].ToString(),
-                    TenLop = item["TenLop"].ToString(),
-                    NgayBatDau = (DateTime)item["NgayBatDau"],
-                    NgayKetThuc = (DateTime)item["NgayKetThuc"]
-                };
+                LopHoc lopHoc = new LopHoc(item);
                 listLopHoc.Add(lopHoc);
             }
             return listLopHoc;
@@ -55,6 +62,21 @@ namespace DiemDanhChoGV.DAO
             string query = "DELETE FROM LopHoc WHERE MaLopHoc = @MaLopHoc ";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maLopHoc });
             return result > 0;
+        }
+
+        public LopHoc GetLopHocByMaLopHoc(int maLopHoc)
+        {
+            LopHoc lopHoc = null;
+            string query = "SELECT * FROM LopHoc WHERE MaLopHoc = @MaLopHoc ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maLopHoc });
+
+            if (data.Rows.Count > 0)
+            {
+                DataRow item = data.Rows[0];
+                lopHoc = new LopHoc(item);
+            }
+
+            return lopHoc;
         }
     }
 }

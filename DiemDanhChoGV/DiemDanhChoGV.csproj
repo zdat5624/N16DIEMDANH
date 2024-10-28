@@ -46,11 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\BuoiDiemDanhDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\DiemDanhDAO.cs" />
     <Compile Include="DAO\LopHocDAO.cs" />
     <Compile Include="DAO\MonHocDAO.cs" />
+    <Compile Include="DAO\SinhVienDAO.cs" />
+    <Compile Include="DAO\SinhVienThamGiaLopHocDAO.cs" />
+    <Compile Include="DTO\BuoiDiemDanh.cs" />
+    <Compile Include="DTO\DiemDanh.cs" />
     <Compile Include="DTO\LopHoc.cs" />
     <Compile Include="DTO\MonHoc.cs" />
+    <Compile Include="DTO\SinhVien.cs" />
+    <Compile Include="DTO\SinhVienThamGiaLopHoc.cs" />
     <Compile Include="formMain.cs">
       <SubType>Form</SubType>
     </Compile>
