@@ -24,52 +24,15 @@ namespace DiemDanhChoGV.DAO
             private set => instance = value;
         }
 
-        // Phương thức lấy danh sách sinh viên
-        public List<SinhVien> GetDanhSachSinhVien()
-        {
-            List<SinhVien> listSinhVien = new List<SinhVien>();
-            string query = "SELECT * FROM SinhVien";
+        private SinhVienDAO() { }
 
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            foreach (DataRow item in data.Rows)
-            {
-                SinhVien sinhVien = new SinhVien(item);
-                listSinhVien.Add(sinhVien);
-            }
-            return listSinhVien;
-        }
-
-        // Phương thức thêm sinh viên
-        public bool ThemSinhVien(string maSinhVien, string hoTen)
-        {
-            string query = "INSERT INTO SinhVien (MaSinhVien, HoTen) VALUES (@MaSinhVien , @HoTen)";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maSinhVien, hoTen });
-            return result > 0;
-        }
-
-        // Phương thức cập nhật sinh viên
-        public bool CapNhatSinhVien(string maSinhVien, string hoTen)
-        {
-            string query = "UPDATE SinhVien SET HoTen = @HoTen WHERE MaSinhVien = @MaSinhVien";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { hoTen, maSinhVien });
-            return result > 0;
-        }
-
-        // Phương thức xóa sinh viên
-        public bool XoaSinhVien(string maSinhVien)
-        {
-            string query = "DELETE FROM SinhVien WHERE MaSinhVien = @MaSinhVien";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maSinhVien });
-            return result > 0;
-        }
-
+        // Lấy danh sách sinh viên theo Mã Lớp Học
         public List<SinhVien> GetDanhSachSinhVienByMaLopHoc(int maLopHoc)
         {
             List<SinhVien> listSinhVien = new List<SinhVien>();
-            string query = @"SELECT sv.MaSinhVien, sv.HoTen 
-                     FROM SinhVien sv
-                     JOIN SinhVienThamGiaLopHoc svlh ON sv.MaSinhVien = svlh.MaSinhVien
-                     WHERE svlh.MaLopHoc = @MaLopHoc ";
+            string query = @"SELECT sv.SinhVienID, sv.MaSinhVien, sv.HoTen
+                             FROM SinhVien sv
+                             WHERE sv.MaLopHoc = @MaLopHoc";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maLopHoc });
             foreach (DataRow item in data.Rows)

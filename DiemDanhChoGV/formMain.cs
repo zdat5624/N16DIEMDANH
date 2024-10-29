@@ -16,8 +16,6 @@ namespace DiemDanhChoGV
     {
         private List<LopHoc> danhSachLopHoc;
 
-
-
         /// <summary>
         /// Đây là dữ liệu ứng với Lớp học đang được chọn để hiện thị trong Datagrid view
         /// 
@@ -28,11 +26,10 @@ namespace DiemDanhChoGV
         private List<SinhVien> danhSachSinhVien = null;
         private List<BuoiDiemDanh> danhSachBuoiDiemDanh = null;
         private List<DiemDanh> danhSachDiemDanh = null;
-        private List<SinhVienThamGiaLopHoc> danhSachSinhVienThamGiaLopHoc = null;
         
         private string kyHieuCoMat = "V";
         private string kyHieuVangMat = "X";
-        private string kyHieuChuaDiemDanh = "";
+        private string kyHieuChuaDiemDanh = "-";
 
         public formMain()
         {
@@ -72,20 +69,7 @@ namespace DiemDanhChoGV
             lvDanhSachLop.FullRowSelect = true;
         }
 
-        //void LoadDtgvDanhSachDiemDanh(int maLopHoc, string maMonHoc)
-        //{
-        //    // Lay du lieu
-        //    this.monHoc = MonHocDAO.Instance.TimMonHocTheoMa(maMonHoc);
-        //    this.lopHoc = LopHocDAO.Instance.GetLopHocByMaLopHoc(maLopHoc);
-        //    this.danhSachSinhVien = SinhVienDAO.Instance.GetDanhSachSinhVienByMaLopHoc(maLopHoc);
-        //    this.danhSachSinhVienThamGiaLopHoc = SinhVienThamGiaLopHocDAO.Instance.GetDanhSachSinhVienThamGiaLopHoc(maLopHoc);
-        //    this.danhSachBuoiDiemDanh = BuoiDiemDanhDAO.Instance.GetDanhSachBuoiDiemDanhByMaLopHoc(maLopHoc);
-        //    this.danhSachDiemDanh = DiemDanhDAO.Instance.GetDanhSachDiemDanhByMaLopHoc(maLopHoc);
-        //    dtgvLopHoc.DataSource = danhSachSinhVien;
 
-
-        //    lbTieuDe.Text = this.lopHoc.TenLop + " - " + this.monHoc.MaMonHoc + " - " + this.monHoc.TenMonHoc + " - " + this.monHoc.SoTinChi;
-        //}
 
         void LoadDtgvDanhSachDiemDanh(int maLopHoc, string maMonHoc)
         {
@@ -118,7 +102,7 @@ namespace DiemDanhChoGV
                 foreach (var buoi in danhSachBuoiDiemDanh)
                 {
                     var diemDanh = danhSachDiemDanh
-                        .FirstOrDefault(dd => dd.MaSinhVien == sinhVien.MaSinhVien && dd.MaBuoiDiemDanh == buoi.MaBuoiDiemDanh);
+                        .FirstOrDefault(dd => dd.SinhVienID == sinhVien.SinhVienID && dd.MaBuoiDiemDanh == buoi.MaBuoiDiemDanh);
 
                     if (diemDanh != null)
                     {

@@ -24,6 +24,7 @@ namespace DiemDanhChoGV.DAO
             }
             private set => instance = value;
         }
+        private LopHocDAO() { }
 
         // Phương thức lấy danh sách lớp học
         public List<LopHoc> GetDanhSachLopHoc()
@@ -38,30 +39,6 @@ namespace DiemDanhChoGV.DAO
                 listLopHoc.Add(lopHoc);
             }
             return listLopHoc;
-        }
-
-        // Phương thức thêm lớp học
-        public bool ThemLopHoc(string maMonHoc, string tenLop, DateTime ngayBatDau, DateTime ngayKetThuc)
-        {
-            string query = "INSERT INTO LopHoc (MaMonHoc, TenLop, NgayBatDau, NgayKetThuc) VALUES (@MaMonHoc , @TenLop , @NgayBatDau , @NgayKetThuc )";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maMonHoc, tenLop, ngayBatDau, ngayKetThuc });
-            return result > 0;
-        }
-
-        // Phương thức cập nhật lớp học
-        public bool CapNhatLopHoc(int maLopHoc, string maMonHoc, string tenLop, DateTime ngayBatDau, DateTime ngayKetThuc)
-        {
-            string query = "UPDATE LopHoc SET MaMonHoc = @MaMonHoc, TenLop = @TenLop , NgayBatDau = @NgayBatDau , NgayKetThuc = @NgayKetThuc WHERE MaLopHoc = @MaLopHoc ";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maMonHoc, tenLop, ngayBatDau, ngayKetThuc, maLopHoc });
-            return result > 0;
-        }
-
-        // Phương thức xóa lớp học
-        public bool XoaLopHoc(int maLopHoc)
-        {
-            string query = "DELETE FROM LopHoc WHERE MaLopHoc = @MaLopHoc ";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maLopHoc });
-            return result > 0;
         }
 
         public LopHoc GetLopHocByMaLopHoc(int maLopHoc)

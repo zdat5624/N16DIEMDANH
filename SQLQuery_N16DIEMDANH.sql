@@ -4,12 +4,6 @@ GO
 Use N16DIEMDANH
 GO
 
-CREATE TABLE SinhVien (
-    MaSinhVien NVARCHAR(50) PRIMARY KEY,
-    HoTen NVARCHAR(100) NOT NULL,
-);
-
-GO
 
 CREATE TABLE MonHoc (
     MaMonHoc NVARCHAR(50) PRIMARY KEY,
@@ -20,10 +14,10 @@ GO
 
 CREATE TABLE LopHoc (
     MaLopHoc INT PRIMARY KEY IDENTITY(1,1),
-    MaMonHoc NVARCHAR(50),
-	TenLop NVARCHAR(255),
-    NgayBatDau DATE,
-    NgayKetThuc DATE,
+    MaMonHoc NVARCHAR(50) NOT NULL,
+	TenLop NVARCHAR(255) NOT NULL,
+    NgayBatDau DATE NOT NULL,
+    NgayKetThuc DATE NOT NULL,
     FOREIGN KEY (MaMonHoc) REFERENCES MonHoc(MaMonHoc),
 );
 GO
@@ -36,24 +30,26 @@ CREATE TABLE BuoiDiemDanh (
 );
 GO
 
+CREATE TABLE SinhVien (
+	SinhVienID INT PRIMARY KEY IDENTITY(1,1),
+    MaSinhVien NVARCHAR(50) NOT NULL,
+    HoTen NVARCHAR(100) NOT NULL,
+	MaLopHoc INT NOT NULL,
+	FOREIGN KEY (MaLopHoc) REFERENCES LopHoc(MaLopHoc)
+);
+
+GO
+
 CREATE TABLE DiemDanh (
-    MaSinhVien NVARCHAR(50),
-    MaBuoiDiemDanh INT,
+    SinhVienID INT NOT NULL,
+    MaBuoiDiemDanh INT NOT NULL,
     TrangThai INT, -- 1: Có mặt, 0: Vắng mặt
-	PRIMARY KEY (MaSinhVien, MaBuoiDiemDanh),
-    FOREIGN KEY (MaSinhVien) REFERENCES SinhVien(MaSinhVien),
+	PRIMARY KEY (SinhVienID, MaBuoiDiemDanh),
+    FOREIGN KEY (SinhVienID) REFERENCES SinhVien(SinhVienID),
 	FOREIGN KEY (MaBuoiDiemDanh) REFERENCES BuoiDiemDanh(MaBuoiDiemDanh)
 );
 GO
 
-CREATE TABLE SinhVienThamGiaLopHoc (
-    MaSinhVien NVARCHAR(50),
-    MaLopHoc INT,
-    PRIMARY KEY (MaSinhVien, MaLopHoc),
-    FOREIGN KEY (MaSinhVien) REFERENCES SinhVien(MaSinhVien),
-    FOREIGN KEY (MaLopHoc) REFERENCES LopHoc(MaLopHoc)
-);
-GO
 
 -- Chỉ lưu 1 hàng dữ liệu để phục vụ xuất excel
 CREATE TABLE GiangVien (
@@ -88,27 +84,27 @@ INSERT INTO LopHoc (MaMonHoc, TenLop, NgayBatDau, NgayKetThuc) VALUES
 ('MH008', N'Lớp Trí tuệ nhân tạo 1', '2024-09-01', '2024-12-31');
 GO
 
-INSERT INTO SinhVien (MaSinhVien, HoTen) VALUES
-('SV001', N'Nguyễn Văn A'),
-('SV002', N'Trần Thị B'),
-('SV003', N'Lê Văn C'),
-('SV004', N'Phạm Thị D'),
-('SV005', N'Nguyễn Văn E'),
-('SV006', N'Trần Văn F'),
-('SV007', N'Lê Thị G'),
-('SV008', N'Nguyễn Văn H'),
-('SV009', N'Phạm Văn I'),
-('SV010', N'Nguyễn Thị J'),
-('SV011', N'Trần Văn K'),
-('SV012', N'Lê Thị L'),
-('SV013', N'Nguyễn Văn M'),
-('SV014', N'Trần Thị N'),
-('SV015', N'Lê Văn O'),
-('SV016', N'Phạm Văn P'),
-('SV017', N'Nguyễn Thị Q'),
-('SV018', N'Trần Văn R'),
-('SV019', N'Lê Thị S'),
-('SV020', N'Nguyễn Văn T');
+INSERT INTO SinhVien (MaSinhVien, HoTen, MaLopHoc) VALUES
+('SV001', N'Nguyễn Văn A', 1),
+('SV002', N'Trần Thị B', 1),
+('SV003', N'Lê Văn C', 1),
+('SV004', N'Phạm Thị D',  1),
+('SV005', N'Nguyễn Văn E',  1),
+('SV006', N'Trần Văn F', 1),
+('SV007', N'Lê Thị G', 1),
+('SV008', N'Nguyễn Văn H', 2),
+('SV009', N'Phạm Văn I', 2),
+('SV010', N'Nguyễn Thị J', 2),
+('SV011', N'Trần Văn K', 3),
+('SV012', N'Lê Thị L', 4),
+('SV013', N'Nguyễn Văn M', 5),
+('SV014', N'Trần Thị N', 6),
+('SV015', N'Lê Văn O', 6),
+('SV016', N'Phạm Văn P', 6),
+('SV017', N'Nguyễn Thị Q', 6),
+('SV018', N'Trần Văn R', 6),
+('SV019', N'Lê Thị S', 7),
+('SV020', N'Nguyễn Văn T', 8);
 GO
 
 INSERT INTO BuoiDiemDanh (MaLopHoc, STT) VALUES
@@ -154,79 +150,38 @@ INSERT INTO BuoiDiemDanh (MaLopHoc, STT) VALUES
 
 GO
 
-INSERT INTO SinhVienThamGiaLopHoc (MaSinhVien, MaLopHoc) VALUES
-('SV001', 1),
-('SV002', 1),
-('SV003', 1),
-('SV004', 1),
-('SV005', 2),
-('SV006', 2),
-('SV007', 3),
-('SV008', 4),
-('SV009', 5),
-('SV010', 5),
-('SV011', 6),
-('SV012', 7),
-('SV013', 8),
-('SV014', 1),
-('SV015', 2),
-('SV016', 3),
-('SV017', 4),
-('SV018', 5),
-('SV019', 6),
-('SV020', 7);
-GO
+INSERT INTO DiemDanh (SinhVienID, MaBuoiDiemDanh, TrangThai) VALUES
+(1, 1, 1),
+(1, 2, 0),
+(2, 1, 0),
+(2, 2, 1),
+(4, 1, 0),
+(4, 2, 1),
+(5, 8, 0),
+(5, 9, 1),
+(8, 11, 1),
+(8, 12, 0),
+(9, 13, 0),
+(9, 14, 1),
+(10, 11, 0),
+(10, 12, 1),
+(10, 13, 0),
+(10, 14, 1);
 
-INSERT INTO DiemDanh (MaSinhVien, MaBuoiDiemDanh, TrangThai) VALUES
-('SV001', 1, 1),
-('SV001', 2, 0),
-('SV001', 3, 1),
-('SV002', 1, 1),
-('SV002', 3, 1),
-('SV003', 1, 1),
-('SV003', 2, 1),
-('SV004', 1, 0),
-('SV005', 1, 1),
-('SV006', 1, 1),
-('SV007', 1, 0),
-('SV008', 1, 1),
-('SV009', 1, 1),
-('SV010', 1, 0),
-('SV011', 1, 1),
-('SV012', 1, 1),
-('SV013', 1, 1),
-('SV014', 1, 0),
-('SV015', 1, 1),
-('SV016', 1, 1),
-('SV017', 1, 0),
-('SV018', 1, 1),
-('SV019', 1, 1),
-('SV020', 1, 0);
+
 GO
 
 INSERT INTO GiangVien (HoTen, SoDienThoai, Email, DiaChi) VALUES
 ('Nguyễn Văn TTTT', '0123456789', 't.nguyen@gmail.com', 'HỒ CHÍ MINH')
 GO
 
-DECLARE @MaLopHoc INT = 1
+
 
 SELECT 
-    sv.MaSinhVien, 
-    sv.HoTen,
-    bbd.STT,
-	dd.TrangThai
-FROM 
-    SinhVien sv 
-JOIN 
-    SinhVienThamGiaLopHoc svlh ON sv.MaSinhVien = svlh.MaSinhVien 
-LEFT JOIN 
-    DiemDanh dd ON sv.MaSinhVien = dd.MaSinhVien 
-LEFT JOIN 
-    BuoiDiemDanh bbd ON dd.MaBuoiDiemDanh = bbd.MaBuoiDiemDanh 
-WHERE 
-    svlh.MaLopHoc = @MaLopHoc
-ORDER BY 
-    sv.MaSinhVien, bbd.STT;
+    SinhVien.HoTen, DiemDanh.*
+FROM SinhVien, DiemDanh
+Where SinhVien.MaLopHoc = 2 and SinhVien.SinhVienID=DiemDanh.SinhVienID
 
+select * from BuoiDiemDanh where MaLopHoc = 2
 
-Select * from BuoiDiemDanh where MaLopHoc = '1' ORDER BY STT;
+select * from SinhVien where MaLopHoc=2

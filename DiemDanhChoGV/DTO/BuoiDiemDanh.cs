@@ -9,7 +9,6 @@ namespace DiemDanhChoGV.DTO
         public int MaLopHoc { get; set; }
         public int STT { get; set; }
 
-
         public BuoiDiemDanh(DataRow row)
         {
             MaBuoiDiemDanh = (int)row["MaBuoiDiemDanh"];
