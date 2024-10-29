@@ -26,12 +26,11 @@ namespace DiemDanhChoGV.DAO
 
         private MonHocDAO() { }
 
-
-        // Phương thức tìm kiếm môn học theo mã môn học
-        public MonHoc TimMonHocTheoMa(string maMonHoc)
+        // Phương thức tìm kiếm môn học theo 
+        public MonHoc TimMonHocTheoMonHocID(int monHocID)
         {
-            string query = "SELECT * FROM MonHoc WHERE MaMonHoc = @MaMonHoc ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maMonHoc });
+            string query = "SELECT * FROM MonHoc WHERE MonHocID = @monHocID ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { monHocID });
 
             if (data.Rows.Count > 0)
             {
@@ -40,5 +39,33 @@ namespace DiemDanhChoGV.DAO
 
             return null;
         }
+
+        public List<MonHoc> GetDanhSachMonHoc()
+        {
+            List<MonHoc> list = new List<MonHoc>();
+            string query = "SELECT * FROM MonHoc";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach (DataRow row in data.Rows)
+            {
+                list.Add(new MonHoc(row));
+            }
+
+            return list;
+        }
+
+        public string GetMaMonHocByMonHocID(int monHocID)
+        {
+            string query = "SELECT MaMonHoc FROM MonHoc WHERE MonHocID = @monHocID ";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { monHocID });
+
+            if (data.Rows.Count > 0)
+            {
+                return data.Rows[0]["MaMonHoc"].ToString();
+            }
+
+            return null; // Trả về null nếu không tìm thấy
+        }
+
     }
 }

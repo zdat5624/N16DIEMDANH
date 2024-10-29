@@ -18,7 +18,6 @@ namespace DiemDanhChoGV
 
         /// <summary>
         /// Đây là dữ liệu ứng với Lớp học đang được chọn để hiện thị trong Datagrid view
-        /// 
         /// </summary>
 
         private LopHoc lopHoc = null;
@@ -52,16 +51,19 @@ namespace DiemDanhChoGV
             foreach (LopHoc lopHoc in danhSachLopHoc)
             {
                 ListViewItem item = new ListViewItem(lopHoc.MaLopHoc.ToString());
-                item.SubItems.Add(lopHoc.MaMonHoc);
+                item.SubItems.Add(lopHoc.MonHocID.ToString());
+                item.SubItems.Add(MonHocDAO.Instance.GetMaMonHocByMonHocID(lopHoc.MonHocID));
                 item.SubItems.Add(lopHoc.TenLop);
                 lvDanhSachLop.Items.Add(item);
             }
+            
             KhoiTaoListView();
         }
 
         void KhoiTaoListView()
         {
             lvDanhSachLop.Columns.Add("Mã lớp học",0);
+            lvDanhSachLop.Columns.Add("Môn học ID", 0);
             lvDanhSachLop.Columns.Add("Mã môn học", 90);
             lvDanhSachLop.Columns.Add("Tên lớp", 400);
 
@@ -71,10 +73,10 @@ namespace DiemDanhChoGV
 
 
 
-        void LoadDtgvDanhSachDiemDanh(int maLopHoc, string maMonHoc)
+        void LoadDtgvDanhSachDiemDanh(int maLopHoc, int monHocID)
         {
             // Lấy dữ liệu
-            this.monHoc = MonHocDAO.Instance.TimMonHocTheoMa(maMonHoc);
+            this.monHoc = MonHocDAO.Instance.TimMonHocTheoMonHocID(monHocID);
             this.lopHoc = LopHocDAO.Instance.GetLopHocByMaLopHoc(maLopHoc);
             this.danhSachSinhVien = SinhVienDAO.Instance.GetDanhSachSinhVienByMaLopHoc(maLopHoc);
             this.danhSachBuoiDiemDanh = BuoiDiemDanhDAO.Instance.GetDanhSachBuoiDiemDanhByMaLopHoc(maLopHoc);
@@ -165,17 +167,14 @@ namespace DiemDanhChoGV
 
                 ListViewItem selectedItem = lvDanhSachLop.SelectedItems[0];
                 string maLopHocString = selectedItem.SubItems[0].Text;
-                string maMonHoc = selectedItem.SubItems[1].Text;
+                string monHocIDString = selectedItem.SubItems[1].Text;
 
-                if (int.TryParse(maLopHocString, out int maLopHoc))
+                if (int.TryParse(maLopHocString, out int maLopHoc) && int.TryParse(monHocIDString, out int monHocID))
                 {
-
-                    //MessageBox.Show("Mã lớp học được chọn: " + maLopHoc);
-                    //MessageBox.Show("Mã môn được chọn: " + maMonHoc);
-                    LoadDtgvDanhSachDiemDanh(maLopHoc, maMonHoc);
+                    LoadDtgvDanhSachDiemDanh(maLopHoc, monHocID);
                 }
 
-                
+
             }
             
         }
@@ -188,7 +187,7 @@ namespace DiemDanhChoGV
             f.ShowDialog();
             if (this.lopHoc != null)
             {
-                LoadDtgvDanhSachDiemDanh(this.lopHoc.MaLopHoc, this.lopHoc.MaMonHoc);
+                LoadDtgvDanhSachDiemDanh(this.lopHoc.MaLopHoc, this.lopHoc.MonHocID);
             }
             
         }

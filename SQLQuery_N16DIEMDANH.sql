@@ -6,7 +6,8 @@ GO
 
 
 CREATE TABLE MonHoc (
-    MaMonHoc NVARCHAR(50) PRIMARY KEY,
+	MonHocID INT PRIMARY KEY IDENTITY(1,1),
+    MaMonHoc NVARCHAR(50),
     TenMonHoc NVARCHAR(100) NOT NULL,
     SoTinChi INT NOT NULL,
 );
@@ -14,11 +15,11 @@ GO
 
 CREATE TABLE LopHoc (
     MaLopHoc INT PRIMARY KEY IDENTITY(1,1),
-    MaMonHoc NVARCHAR(50) NOT NULL,
+    MonHocID INT NOT NULL,
 	TenLop NVARCHAR(255) NOT NULL,
     NgayBatDau DATE NOT NULL,
     NgayKetThuc DATE NOT NULL,
-    FOREIGN KEY (MaMonHoc) REFERENCES MonHoc(MaMonHoc),
+    FOREIGN KEY (MonHocID) REFERENCES MonHoc(MonHocID),
 );
 GO
 
@@ -61,6 +62,46 @@ CREATE TABLE GiangVien (
 );
 GO
 
+CREATE PROCEDURE DeleteDiemDanh
+    @SinhVienID INT,
+    @MaBuoiDiemDanh INT
+AS
+BEGIN
+    -- Kiểm tra sự tồn tại của bản ghi
+    IF EXISTS (SELECT 1 FROM DiemDanh WHERE SinhVienID = @SinhVienID AND MaBuoiDiemDanh = @MaBuoiDiemDanh)
+    BEGIN
+        -- Nếu bản ghi tồn tại, thực hiện lệnh DELETE
+        DELETE FROM DiemDanh 
+        WHERE SinhVienID = @SinhVienID AND MaBuoiDiemDanh = @MaBuoiDiemDanh;
+    END
+END
+GO
+
+CREATE PROCEDURE UpsertDiemDanh
+    @SinhVienID INT,
+    @MaBuoiDiemDanh INT,
+    @TrangThai INT
+AS
+BEGIN
+    -- Kiểm tra sự tồn tại của bản ghi
+    IF EXISTS (SELECT 1 FROM DiemDanh WHERE SinhVienID = @SinhVienID AND MaBuoiDiemDanh = @MaBuoiDiemDanh)
+    BEGIN
+        -- Nếu bản ghi tồn tại, cập nhật trạng thái
+        UPDATE DiemDanh
+        SET TrangThai = @TrangThai
+        WHERE SinhVienID = @SinhVienID AND MaBuoiDiemDanh = @MaBuoiDiemDanh;
+    END
+    ELSE
+    BEGIN
+        -- Nếu không tồn tại, chèn mới bản ghi
+        INSERT INTO DiemDanh (SinhVienID, MaBuoiDiemDanh, TrangThai)
+        VALUES (@SinhVienID, @MaBuoiDiemDanh, @TrangThai);
+    END
+END
+
+GO
+
+
 
 INSERT INTO MonHoc (MaMonHoc, TenMonHoc, SoTinChi) VALUES
 ('MH001', N'Lập trình C#', 3),
@@ -73,15 +114,15 @@ INSERT INTO MonHoc (MaMonHoc, TenMonHoc, SoTinChi) VALUES
 ('MH008', N'Trí tuệ nhân tạo', 3);
 GO
 
-INSERT INTO LopHoc (MaMonHoc, TenLop, NgayBatDau, NgayKetThuc) VALUES
-('MH001', N'Lớp Lập trình C# 1', '2024-09-01', '2024-12-31'),
-('MH002', N'Lớp Cơ sở dữ liệu 1', '2024-09-01', '2024-12-31'),
-('MH003', N'Lớp Giải thuật 1', '2024-09-01', '2024-12-31'),
-('MH004', N'Lớp Mạng máy tính 1', '2024-09-01', '2024-12-31'),
-('MH005', N'Lớp Hệ điều hành 1', '2024-09-01', '2024-12-31'),
-('MH0066666666666666', N'Lớp Kiểm thử phần mềm 1', '2024-09-01', '2024-12-31'),
-('MH007', N'Lớp Phát triển web 1', '2024-09-01', '2024-12-31'),
-('MH008', N'Lớp Trí tuệ nhân tạo 1', '2024-09-01', '2024-12-31');
+INSERT INTO LopHoc (MonHocID, TenLop, NgayBatDau, NgayKetThuc) VALUES
+(1, N'Lớp Lập trình C# 1', '2024-09-01', '2024-12-31'),
+(2, N'Lớp Cơ sở dữ liệu 1', '2024-09-01', '2024-12-31'),
+(3, N'Lớp Giải thuật 1', '2024-09-01', '2024-12-31'),
+(4, N'Lớp Mạng máy tính 1', '2024-09-01', '2024-12-31'),
+(5, N'Lớp Hệ điều hành 1', '2024-09-01', '2024-12-31'),
+(6, N'Lớp Kiểm thử phần mềm 1', '2024-09-01', '2024-12-31'),
+(7, N'Lớp Phát triển web 1', '2024-09-01', '2024-12-31'),
+(8, N'Lớp Trí tuệ nhân tạo 1', '2024-09-01', '2024-12-31');
 GO
 
 INSERT INTO SinhVien (MaSinhVien, HoTen, MaLopHoc) VALUES
@@ -177,11 +218,7 @@ GO
 
 
 
-SELECT 
-    SinhVien.HoTen, DiemDanh.*
-FROM SinhVien, DiemDanh
-Where SinhVien.MaLopHoc = 2 and SinhVien.SinhVienID=DiemDanh.SinhVienID
+SELECT * From MonHoc
+SELECT * FROM MonHoc,LopHoc where MonHoc.MaMonHoc=LopHoc.MaMonHoc
 
-select * from BuoiDiemDanh where MaLopHoc = 2
 
-select * from SinhVien where MaLopHoc=2

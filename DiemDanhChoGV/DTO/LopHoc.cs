@@ -10,15 +10,15 @@ namespace DiemDanhChoGV.DTO
     public class LopHoc
     {
         public int MaLopHoc { get; set; }
-        public string MaMonHoc { get; set; }
+        public int MonHocID { get; set; }
         public string TenLop { get; set; }
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
 
-        public LopHoc(int maLopHoc, string maMonHoc, string tenLop, DateTime ngayBatDau, DateTime ngayKetThuc)
+        public LopHoc(int maLopHoc, int monHocID, string tenLop, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
             MaLopHoc = maLopHoc;
-            MaMonHoc = maMonHoc;
+            MonHocID = monHocID;
             TenLop = tenLop;
             NgayBatDau = ngayBatDau;
             NgayKetThuc = ngayKetThuc;
@@ -27,7 +27,7 @@ namespace DiemDanhChoGV.DTO
         public LopHoc(DataRow row)
         {
             MaLopHoc = Convert.ToInt32(row["MaLopHoc"]);
-            MaMonHoc = row["MaMonHoc"].ToString();
+            MonHocID = Convert.ToInt32(row["MonHocID"]);
             TenLop = row["TenLop"].ToString();
             NgayBatDau = Convert.ToDateTime(row["NgayBatDau"]);
             NgayKetThuc = Convert.ToDateTime(row["NgayKetThuc"]);
