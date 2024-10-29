@@ -30,7 +30,7 @@ namespace DiemDanhChoGV.DAO
                 SELECT dd.SinhVienID, dd.MaBuoiDiemDanh, dd.TrangThai
                 FROM DiemDanh dd
                 JOIN BuoiDiemDanh bd ON dd.MaBuoiDiemDanh = bd.MaBuoiDiemDanh
-                WHERE bd.MaLopHoc = @MaLopHoc";
+                WHERE bd.MaLopHoc = @MaLopHoc ";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { maLopHoc });
 
@@ -42,5 +42,26 @@ namespace DiemDanhChoGV.DAO
 
             return listDiemDanh;
         }
+
+        public void LuuDiemDanh(int maBuoiDiemDanh, int sinhVienID, int? trangThai)
+        {
+            string query;
+
+            // Nếu trạng thái là null, chúng ta cần xóa điểm danh
+            if (trangThai == null)
+            {
+                query = @" EXEC DeleteDiemDanh @SinhVienID , @MaBuoiDiemDanh ";
+            }
+            else
+            {
+                // Thêm mới hoặc cập nhật điểm danh
+                query = @" EXEC UpsertDiemDanh @SinhVienID , @MaBuoiDiemDanh , @TrangThai ";
+
+            }
+
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { sinhVienID, maBuoiDiemDanh, trangThai });
+        }
+
+
     }
 }
