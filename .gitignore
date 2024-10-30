@@ -49,7 +49,6 @@ log/
 # Thư mục publish và các tệp triển khai
 publish/
 out/
-AppPackages/
 
 # Các tệp nguồn và mã không cần thiết khác
 *.iobj
