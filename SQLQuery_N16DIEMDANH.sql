@@ -7,7 +7,7 @@ GO
 
 CREATE TABLE MonHoc (
 	MonHocID INT PRIMARY KEY IDENTITY(1,1),
-    MaMonHoc NVARCHAR(50),
+    MaMonHoc NVARCHAR(50) NOT NULL UNIQUE,
     TenMonHoc NVARCHAR(100) NOT NULL,
     SoTinChi INT NOT NULL,
 );
@@ -136,6 +136,53 @@ BEGIN
 END;
 GO
 
+CREATE PROCEDURE DeleteMonHoc
+    @MonHocID INT
+AS
+BEGIN
+    -- Bắt đầu transaction để đảm bảo tính toàn vẹn dữ liệu
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Bước 1: Xóa tất cả các bản ghi trong bảng DiemDanh liên quan đến lớp học
+        DELETE FROM DiemDanh 
+        WHERE MaBuoiDiemDanh IN (
+            SELECT MaBuoiDiemDanh FROM BuoiDiemDanh WHERE MaLopHoc IN (
+                SELECT MaLopHoc FROM LopHoc WHERE MonHocID = @MonHocID
+            )
+        );
+
+        -- Bước 2: Xóa tất cả sinh viên liên quan đến lớp học
+        DELETE FROM SinhVien 
+        WHERE MaLopHoc IN (
+            SELECT MaLopHoc FROM LopHoc WHERE MonHocID = @MonHocID
+        );
+
+        -- Bước 3: Xóa tất cả các buổi điểm danh liên quan đến lớp học
+        DELETE FROM BuoiDiemDanh 
+        WHERE MaLopHoc IN (
+            SELECT MaLopHoc FROM LopHoc WHERE MonHocID = @MonHocID
+        );
+
+        -- Bước 4: Xóa tất cả các lớp học liên quan đến môn học
+        DELETE FROM LopHoc 
+        WHERE MonHocID = @MonHocID;
+
+        -- Bước 5: Cuối cùng, xóa môn học
+        DELETE FROM MonHoc WHERE MonHocID = @MonHocID;
+
+        -- Commit transaction nếu tất cả các lệnh thành công
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Rollback nếu có lỗi
+        ROLLBACK TRANSACTION;
+        -- Hiển thị lỗi
+        THROW;
+    END CATCH
+END;
+GO
+
 
 
 
@@ -253,5 +300,3 @@ INSERT INTO GiangVien (HoTen, SoDienThoai, Email, DiaChi) VALUES
 GO
 
 
-
-EXEC DeleteLopHoc @MaLopHoc = 1;

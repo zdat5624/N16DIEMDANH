@@ -61,5 +61,12 @@ namespace DiemDanhChoGV.DAO
             DataProvider.Instance.ExecuteScalar(query);
         }
 
+        public bool ThemLopHoc(string tenLop, int monHocID, DateTime ngayBatDau, DateTime ngayKetThuc)
+        {
+            string query = "INSERT INTO LopHoc (TenLop, monHocID, NgayBatDau, NgayKetThuc) " +
+                           "VALUES ( @TenLop , @monHocID , @NgayBatDau , @NgayKetThuc )";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenLop, monHocID, ngayBatDau, ngayKetThuc });
+            return result > 0;
+        }
     }
 }

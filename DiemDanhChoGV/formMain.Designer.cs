@@ -87,13 +87,13 @@
             // tsLopHoc
             // 
             this.tsLopHoc.Name = "tsLopHoc";
-            this.tsLopHoc.Size = new System.Drawing.Size(224, 26);
+            this.tsLopHoc.Size = new System.Drawing.Size(150, 26);
             this.tsLopHoc.Text = "Lớp học";
             // 
             // tsMonHoc
             // 
             this.tsMonHoc.Name = "tsMonHoc";
-            this.tsMonHoc.Size = new System.Drawing.Size(224, 26);
+            this.tsMonHoc.Size = new System.Drawing.Size(150, 26);
             this.tsMonHoc.Text = "Môn học";
             this.tsMonHoc.Click += new System.EventHandler(this.tsMonHoc_Click);
             // 
@@ -109,13 +109,14 @@
             // tsThemLopHoc
             // 
             this.tsThemLopHoc.Name = "tsThemLopHoc";
-            this.tsThemLopHoc.Size = new System.Drawing.Size(191, 26);
+            this.tsThemLopHoc.Size = new System.Drawing.Size(224, 26);
             this.tsThemLopHoc.Text = "Thêm lớp học";
+            this.tsThemLopHoc.Click += new System.EventHandler(this.tsThemLopHoc_Click);
             // 
             // tsThemMonHoc
             // 
             this.tsThemMonHoc.Name = "tsThemMonHoc";
-            this.tsThemMonHoc.Size = new System.Drawing.Size(191, 26);
+            this.tsThemMonHoc.Size = new System.Drawing.Size(224, 26);
             this.tsThemMonHoc.Text = "Thêm môn học";
             this.tsThemMonHoc.Click += new System.EventHandler(this.tsThemMonHoc_Click);
             // 

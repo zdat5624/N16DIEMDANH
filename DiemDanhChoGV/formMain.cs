@@ -251,6 +251,11 @@ namespace DiemDanhChoGV
 
         private void tsXuatFileExcel_Click(object sender, EventArgs e)
         {
+            if (lopHoc == null)
+            {
+                MessageBox.Show("Vui lòng mở một lớp học");
+                return;
+            }
             ExportToExcel(dtgvLopHoc);
         }
 
@@ -271,6 +276,17 @@ namespace DiemDanhChoGV
         {
             formQuanLyMonHoc f = new formQuanLyMonHoc();
             f.ShowDialog();
+        }
+
+        private void tsThemLopHoc_Click(object sender, EventArgs e)
+        {
+            formThemLopHoc f = new formThemLopHoc();
+            f.ShowDialog();
+            LoadForm();
+            if (this.lopHoc != null)
+            {
+                LoadDtgvDanhSachDiemDanh(this.lopHoc.MaLopHoc, this.lopHoc.MonHocID);
+            }
         }
     }
 }
