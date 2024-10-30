@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnDiemDanhThuCong = new System.Windows.Forms.Button();
-            this.btnGGForms = new System.Windows.Forms.Button();
+            this.btnWebGps = new System.Windows.Forms.Button();
             this.btnQuetMa = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,26 +54,26 @@
             this.btnDiemDanhThuCong.UseVisualStyleBackColor = false;
             this.btnDiemDanhThuCong.Click += new System.EventHandler(this.btnDiemDanhThuCong_Click);
             // 
-            // btnGGForms
+            // btnWebGps
             // 
-            this.btnGGForms.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGGForms.BackColor = System.Drawing.Color.Magenta;
-            this.btnGGForms.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnGGForms.FlatAppearance.BorderSize = 0;
-            this.btnGGForms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGGForms.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGGForms.ForeColor = System.Drawing.Color.White;
-            this.btnGGForms.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGGForms.Location = new System.Drawing.Point(227, 56);
-            this.btnGGForms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnGGForms.Name = "btnGGForms";
-            this.btnGGForms.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnGGForms.Size = new System.Drawing.Size(160, 50);
-            this.btnGGForms.TabIndex = 34;
-            this.btnGGForms.Text = "google forms";
-            this.btnGGForms.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGGForms.UseVisualStyleBackColor = false;
-            this.btnGGForms.Click += new System.EventHandler(this.btnGGForms_Click);
+            this.btnWebGps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnWebGps.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnWebGps.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnWebGps.FlatAppearance.BorderSize = 0;
+            this.btnWebGps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWebGps.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWebGps.ForeColor = System.Drawing.Color.White;
+            this.btnWebGps.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWebGps.Location = new System.Drawing.Point(227, 56);
+            this.btnWebGps.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnWebGps.Name = "btnWebGps";
+            this.btnWebGps.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnWebGps.Size = new System.Drawing.Size(160, 50);
+            this.btnWebGps.TabIndex = 34;
+            this.btnWebGps.Text = "Web gps";
+            this.btnWebGps.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnWebGps.UseVisualStyleBackColor = false;
+            this.btnWebGps.Click += new System.EventHandler(this.btnGGForms_Click);
             // 
             // btnQuetMa
             // 
@@ -102,7 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 169);
             this.Controls.Add(this.btnQuetMa);
-            this.Controls.Add(this.btnGGForms);
+            this.Controls.Add(this.btnWebGps);
             this.Controls.Add(this.btnDiemDanhThuCong);
             this.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.MaximumSize = new System.Drawing.Size(626, 216);
@@ -117,7 +117,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnDiemDanhThuCong;
-        private System.Windows.Forms.Button btnGGForms;
+        private System.Windows.Forms.Button btnWebGps;
         private System.Windows.Forms.Button btnQuetMa;
     }
 }

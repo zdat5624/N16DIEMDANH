@@ -70,7 +70,7 @@
             this.xuatFileExcelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1074, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1074, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -81,7 +81,7 @@
             this.tsLopHoc,
             this.tsMonHoc});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 26);
             this.toolStripMenuItem1.Text = "Quản lý";
             // 
             // tsLopHoc
@@ -103,20 +103,20 @@
             this.tsThemLopHoc,
             this.tsThemMonHoc});
             this.themToolStripMenuItem.Name = "themToolStripMenuItem";
-            this.themToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.themToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
             this.themToolStripMenuItem.Text = "Thêm";
             // 
             // tsThemLopHoc
             // 
             this.tsThemLopHoc.Name = "tsThemLopHoc";
-            this.tsThemLopHoc.Size = new System.Drawing.Size(224, 26);
+            this.tsThemLopHoc.Size = new System.Drawing.Size(191, 26);
             this.tsThemLopHoc.Text = "Thêm lớp học";
             this.tsThemLopHoc.Click += new System.EventHandler(this.tsThemLopHoc_Click);
             // 
             // tsThemMonHoc
             // 
             this.tsThemMonHoc.Name = "tsThemMonHoc";
-            this.tsThemMonHoc.Size = new System.Drawing.Size(224, 26);
+            this.tsThemMonHoc.Size = new System.Drawing.Size(191, 26);
             this.tsThemMonHoc.Text = "Thêm môn học";
             this.tsThemMonHoc.Click += new System.EventHandler(this.tsThemMonHoc_Click);
             // 
@@ -125,7 +125,7 @@
             this.xuatFileExcelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsXuatFileExcel});
             this.xuatFileExcelToolStripMenuItem.Name = "xuatFileExcelToolStripMenuItem";
-            this.xuatFileExcelToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.xuatFileExcelToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
             this.xuatFileExcelToolStripMenuItem.Text = "Xuất";
             // 
             // tsXuatFileExcel
@@ -146,7 +146,7 @@
             this.lvDanhSachLop.HideSelection = false;
             this.lvDanhSachLop.Location = new System.Drawing.Point(0, 0);
             this.lvDanhSachLop.Name = "lvDanhSachLop";
-            this.lvDanhSachLop.Size = new System.Drawing.Size(238, 480);
+            this.lvDanhSachLop.Size = new System.Drawing.Size(238, 478);
             this.lvDanhSachLop.TabIndex = 1;
             this.lvDanhSachLop.TileSize = new System.Drawing.Size(500, 30);
             this.lvDanhSachLop.UseCompatibleStateImageBehavior = false;
@@ -169,9 +169,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(238, 574);
+            this.panel1.Size = new System.Drawing.Size(238, 572);
             this.panel1.TabIndex = 40;
             // 
             // panel3
@@ -180,7 +180,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 94);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(238, 480);
+            this.panel3.Size = new System.Drawing.Size(238, 478);
             this.panel3.TabIndex = 42;
             // 
             // panel2
@@ -247,7 +247,7 @@
             // 
             this.panel4.Controls.Add(this.lbTieuDe);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(238, 28);
+            this.panel4.Location = new System.Drawing.Point(238, 30);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(836, 94);
             this.panel4.TabIndex = 42;
