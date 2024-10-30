@@ -40,6 +40,7 @@
             this.flpChonBuoiDiemDanh.Name = "flpChonBuoiDiemDanh";
             this.flpChonBuoiDiemDanh.Size = new System.Drawing.Size(405, 568);
             this.flpChonBuoiDiemDanh.TabIndex = 0;
+            this.flpChonBuoiDiemDanh.Paint += new System.Windows.Forms.PaintEventHandler(this.flpChonBuoiDiemDanh_Paint);
             // 
             // formChonBuoiDiemDanh
             // 

@@ -39,6 +39,7 @@
             this.Name = "formQuanLyMonHoc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý môn học";
+            this.Load += new System.EventHandler(this.formQuanLyMonHoc_Load);
             this.ResumeLayout(false);
 
         }

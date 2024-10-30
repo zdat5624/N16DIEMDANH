@@ -16,5 +16,10 @@ namespace DiemDanhChoGV
         {
             InitializeComponent();
         }
+
+        private void formQuanLyMonHoc_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

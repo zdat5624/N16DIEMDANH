@@ -157,5 +157,9 @@ namespace DiemDanhChoGV
             return 0;
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

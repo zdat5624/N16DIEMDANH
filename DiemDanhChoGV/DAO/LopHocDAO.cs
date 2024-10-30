@@ -55,5 +55,11 @@ namespace DiemDanhChoGV.DAO
 
             return lopHoc;
         }
+        public void DeleteLopHoc(int maLop)
+        {
+            string query = "EXEC DeleteLopHoc @MaLopHoc = "+ maLop;
+            DataProvider.Instance.ExecuteScalar(query);
+        }
+
     }
 }

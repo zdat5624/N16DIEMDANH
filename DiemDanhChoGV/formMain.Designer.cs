@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsLopHoc = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +49,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnDiemDanh = new System.Windows.Forms.Button();
+            this.btnXoaLop = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -209,14 +210,14 @@
             this.dtgvLopHoc.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dtgvLopHoc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtgvLopHoc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvLopHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvLopHoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvLopHoc.ColumnHeadersHeight = 30;
             this.dtgvLopHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgvLopHoc.EnableHeadersVisualStyles = false;
@@ -224,18 +225,19 @@
             this.dtgvLopHoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgvLopHoc.Name = "dtgvLopHoc";
             this.dtgvLopHoc.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvLopHoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvLopHoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvLopHoc.RowHeadersWidth = 51;
             this.dtgvLopHoc.RowTemplate.Height = 24;
             this.dtgvLopHoc.Size = new System.Drawing.Size(818, 412);
             this.dtgvLopHoc.TabIndex = 41;
+            this.dtgvLopHoc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvLopHoc_CellContentClick);
             // 
             // panel4
             // 
@@ -245,9 +247,11 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(836, 94);
             this.panel4.TabIndex = 42;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnXoaLop);
             this.panel5.Controls.Add(this.btnDiemDanh);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(238, 541);
@@ -276,6 +280,28 @@
             this.btnDiemDanh.UseVisualStyleBackColor = false;
             this.btnDiemDanh.Visible = false;
             this.btnDiemDanh.Click += new System.EventHandler(this.btnDiemDanh_Click);
+            // 
+            // btnXoaLop
+            // 
+            this.btnXoaLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnXoaLop.BackColor = System.Drawing.Color.Red;
+            this.btnXoaLop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnXoaLop.FlatAppearance.BorderSize = 0;
+            this.btnXoaLop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoaLop.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaLop.ForeColor = System.Drawing.Color.White;
+            this.btnXoaLop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoaLop.Location = new System.Drawing.Point(631, 10);
+            this.btnXoaLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoaLop.Name = "btnXoaLop";
+            this.btnXoaLop.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnXoaLop.Size = new System.Drawing.Size(120, 40);
+            this.btnXoaLop.TabIndex = 34;
+            this.btnXoaLop.Text = "Xóa lớp học";
+            this.btnXoaLop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnXoaLop.UseVisualStyleBackColor = false;
+            this.btnXoaLop.Visible = false;
+            this.btnXoaLop.Click += new System.EventHandler(this.btnXoaLop_Click);
             // 
             // formMain
             // 
@@ -328,6 +354,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tsLopHoc;
         private System.Windows.Forms.ToolStripMenuItem tsMonHoc;
+        private System.Windows.Forms.Button btnXoaLop;
     }
 }
 

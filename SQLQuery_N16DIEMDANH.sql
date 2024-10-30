@@ -100,6 +100,42 @@ BEGIN
 END
 
 GO
+CREATE PROCEDURE DeleteLopHoc
+    @MaLopHoc INT
+AS
+BEGIN
+    -- Bắt đầu transaction để đảm bảo tính toàn vẹn dữ liệu
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Xóa các sinh viên thuộc lớp học trong bảng SinhVien
+        DELETE FROM SinhVien WHERE MaLopHoc = @MaLopHoc;
+
+        -- Xóa các bản ghi trong bảng DiemDanh dựa trên MaBuoiDiemDanh trong BuoiDiemDanh của MaLopHoc
+        DELETE DiemDanh 
+        FROM DiemDanh dd
+        JOIN BuoiDiemDanh bdd ON dd.MaBuoiDiemDanh = bdd.MaBuoiDiemDanh
+        WHERE bdd.MaLopHoc = @MaLopHoc;
+
+        -- Xóa các buổi điểm danh của lớp học trong bảng BuoiDiemDanh
+        DELETE FROM BuoiDiemDanh WHERE MaLopHoc = @MaLopHoc;
+
+        -- Cuối cùng, xóa lớp học khỏi bảng LopHoc
+        DELETE FROM LopHoc WHERE MaLopHoc = @MaLopHoc;
+
+        -- Commit transaction nếu thành công
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Rollback nếu có lỗi
+        ROLLBACK TRANSACTION;
+        -- Hiển thị lỗi
+        THROW;
+    END CATCH
+END;
+GO
+
+DROP PROCEDURE DeleteLopHoc;
 
 
 
@@ -222,3 +258,4 @@ SELECT * From MonHoc
 SELECT * FROM MonHoc,LopHoc where MonHoc.MaMonHoc=LopHoc.MaMonHoc
 
 
+EXEC DeleteLopHoc @MaLopHoc = 1;

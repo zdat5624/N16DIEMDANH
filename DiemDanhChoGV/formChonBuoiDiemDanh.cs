@@ -72,5 +72,10 @@ namespace DiemDanhChoGV
         {
             LoadForm();
         }
+
+        private void flpChonBuoiDiemDanh_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

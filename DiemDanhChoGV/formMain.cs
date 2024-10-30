@@ -146,6 +146,7 @@ namespace DiemDanhChoGV
             lbTieuDe.Text = $"{this.lopHoc.TenLop} - {this.monHoc.MaMonHoc} - {this.monHoc.TenMonHoc} - {this.monHoc.SoTinChi} tín chỉ - {this.lopHoc.NgayBatDau:dd/MM/yyyy} đến {this.lopHoc.NgayKetThuc:dd/MM/yyyy}";
 
             btnDiemDanh.Visible = true;
+            btnXoaLop.Visible = true;
         }
 
 
@@ -190,6 +191,31 @@ namespace DiemDanhChoGV
                 LoadDtgvDanhSachDiemDanh(this.lopHoc.MaLopHoc, this.lopHoc.MonHocID);
             }
             
+        }
+
+        private void btnXoaLop_Click(object sender, EventArgs e)
+        {
+            if (lvDanhSachLop.SelectedItems.Count > 0)
+            {
+                DialogResult res = MessageBox.Show("Bạn có chắc muốn xóa lớp có mã "+ lvDanhSachLop.SelectedItems[0].Text, "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(res == DialogResult.Yes)
+                {
+                    int maLop = int.Parse(lvDanhSachLop.SelectedItems[0].Text);
+                    LopHocDAO.Instance.DeleteLopHoc(maLop);
+                    dtgvLopHoc.DataSource = null;
+                    LoadForm();
+                }
+            }
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dtgvLopHoc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
