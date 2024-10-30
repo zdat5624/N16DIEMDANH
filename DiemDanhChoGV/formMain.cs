@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClosedXML.Excel;
 
 namespace DiemDanhChoGV
 {
@@ -192,6 +193,41 @@ namespace DiemDanhChoGV
             }
             
         }
+        private void ExportToExcel(DataGridView dataGridView)
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Data");
+
+                // Tạo tiêu đề cột từ DataGridView
+                for (int i = 0; i < dataGridView.ColumnCount; i++)
+                {
+                    worksheet.Cell(1, i + 1).Value = dataGridView.Columns[i].HeaderText;
+                }
+
+                // Thêm dữ liệu từ DataGridView vào Excel
+                for (int i = 0; i < dataGridView.RowCount; i++)
+                {
+                    for (int j = 0; j < dataGridView.ColumnCount; j++)
+                    {
+                        worksheet.Cell(i + 2, j + 1).Value = dataGridView.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+
+                // Lưu file Excel
+                var saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Excel Files|*.xlsx",
+                    Title = "Save an Excel File"
+                };
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    workbook.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất dữ liệu ra Excel thành công!");
+                }
+            }
+        }
 
         private void btnXoaLop_Click(object sender, EventArgs e)
         {
@@ -213,7 +249,12 @@ namespace DiemDanhChoGV
 
         }
 
-        private void dtgvLopHoc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void tsXuatFileExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel(dtgvLopHoc);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
