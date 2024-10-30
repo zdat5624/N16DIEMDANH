@@ -266,5 +266,11 @@ namespace DiemDanhChoGV
         }
 
         #endregion
+
+        private void tsMonHoc_Click(object sender, EventArgs e)
+        {
+            formQuanLyMonHoc f = new formQuanLyMonHoc();
+            f.ShowDialog();
+        }
     }
 }

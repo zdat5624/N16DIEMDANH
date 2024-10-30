@@ -211,6 +211,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formCapNhatMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCapNhatMonHoc.Designer.cs">
+      <DependentUpon>formCapNhatMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="formChonBuoiDiemDanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,12 @@
     <Compile Include="formQuanLyMonHoc.Designer.cs">
       <DependentUpon>formQuanLyMonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="formThemLopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formThemLopHoc.Designer.cs">
+      <DependentUpon>formThemLopHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="formThemMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +272,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formCapNhatMonHoc.resx">
+      <DependentUpon>formCapNhatMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formChonBuoiDiemDanh.resx">
       <DependentUpon>formChonBuoiDiemDanh.cs</DependentUpon>
     </EmbeddedResource>
@@ -274,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formQuanLyMonHoc.resx">
       <DependentUpon>formQuanLyMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formThemLopHoc.resx">
+      <DependentUpon>formThemLopHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formThemMonHoc.resx">
       <DependentUpon>formThemMonHoc.cs</DependentUpon>

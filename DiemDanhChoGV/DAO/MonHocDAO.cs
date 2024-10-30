@@ -81,5 +81,19 @@ namespace DiemDanhChoGV.DAO
             return result > 0;
         }
 
+        public bool DeleteMonHoc(int monHocID)
+        {
+            string query = "EXEC DeleteMonHoc @MonHocID ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { monHocID });
+            return result > 0;
+        }
+
+        public bool UpdateMonHoc(int monHocID, string maMonHoc, string tenMonHoc, int soTinChi)
+        {
+            string query = "UPDATE MonHoc SET MaMonHoc = @MaMonHoc , TenMonHoc = @TenMonHoc , SoTinChi = @SoTinChi WHERE MonHocID = @MonHocID ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maMonHoc, tenMonHoc, soTinChi, monHocID });
+            return result > 0;
+        }
+
     }
 }
