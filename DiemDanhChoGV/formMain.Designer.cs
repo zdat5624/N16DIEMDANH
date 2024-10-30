@@ -81,7 +81,7 @@
             this.tsLopHoc,
             this.tsMonHoc});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 26);
             this.toolStripMenuItem1.Text = "Quản lý";
             // 
             // tsLopHoc
@@ -114,21 +114,22 @@
             // tsThemMonHoc
             // 
             this.tsThemMonHoc.Name = "tsThemMonHoc";
-            this.tsThemMonHoc.Size = new System.Drawing.Size(191, 26);
+            this.tsThemMonHoc.Size = new System.Drawing.Size(224, 26);
             this.tsThemMonHoc.Text = "Thêm môn học";
+            this.tsThemMonHoc.Click += new System.EventHandler(this.tsThemMonHoc_Click);
             // 
             // xuatFileExcelToolStripMenuItem
             // 
             this.xuatFileExcelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsXuatFileExcel});
             this.xuatFileExcelToolStripMenuItem.Name = "xuatFileExcelToolStripMenuItem";
-            this.xuatFileExcelToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.xuatFileExcelToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
             this.xuatFileExcelToolStripMenuItem.Text = "Xuất";
             // 
             // tsXuatFileExcel
             // 
             this.tsXuatFileExcel.Name = "tsXuatFileExcel";
-            this.tsXuatFileExcel.Size = new System.Drawing.Size(224, 26);
+            this.tsXuatFileExcel.Size = new System.Drawing.Size(185, 26);
             this.tsXuatFileExcel.Text = "Xuất file Excel";
             this.tsXuatFileExcel.Click += new System.EventHandler(this.tsXuatFileExcel_Click);
             // 

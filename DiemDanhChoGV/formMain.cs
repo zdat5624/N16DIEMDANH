@@ -181,7 +181,7 @@ namespace DiemDanhChoGV
             
         }
 
-        #endregion
+        
 
         private void btnDiemDanh_Click(object sender, EventArgs e)
         {
@@ -258,5 +258,13 @@ namespace DiemDanhChoGV
         {
 
         }
+
+        private void tsThemMonHoc_Click(object sender, EventArgs e)
+        {
+            formThemMonHoc f = new formThemMonHoc();
+            f.ShowDialog();
+        }
+
+        #endregion
     }
 }

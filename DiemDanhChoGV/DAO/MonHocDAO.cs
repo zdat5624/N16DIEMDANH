@@ -67,5 +67,19 @@ namespace DiemDanhChoGV.DAO
             return null; // Trả về null nếu không tìm thấy
         }
 
+        // Phương thức thêm môn học
+        public bool ThemMonHoc(string maMonHoc, string tenMonHoc, int soTinChi)
+        {
+            string query = "INSERT INTO MonHoc (MaMonHoc, TenMonHoc, SoTinChi) VALUES ( @MaMonHoc , @TenMonHoc ,   @SoTinChi )";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maMonHoc, tenMonHoc, soTinChi });
+            return result > 0;
+        }
+        public bool KiemTraMaMonHocTonTai(string maMonHoc)
+        {
+            string query = "SELECT COUNT(*) FROM MonHoc WHERE MaMonHoc = @MaMonHoc ";
+            int result = (int)DataProvider.Instance.ExecuteScalar(query, new object[] { maMonHoc });
+            return result > 0;
+        }
+
     }
 }

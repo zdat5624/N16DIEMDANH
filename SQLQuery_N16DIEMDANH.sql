@@ -108,14 +108,15 @@ BEGIN
     BEGIN TRANSACTION;
 
     BEGIN TRY
-        -- Xóa các sinh viên thuộc lớp học trong bảng SinhVien
-        DELETE FROM SinhVien WHERE MaLopHoc = @MaLopHoc;
 
-        -- Xóa các bản ghi trong bảng DiemDanh dựa trên MaBuoiDiemDanh trong BuoiDiemDanh của MaLopHoc
+		-- Xóa các bản ghi trong bảng DiemDanh dựa trên MaBuoiDiemDanh trong BuoiDiemDanh của MaLopHoc
         DELETE DiemDanh 
         FROM DiemDanh dd
         JOIN BuoiDiemDanh bdd ON dd.MaBuoiDiemDanh = bdd.MaBuoiDiemDanh
         WHERE bdd.MaLopHoc = @MaLopHoc;
+
+        -- Xóa các sinh viên thuộc lớp học trong bảng SinhVien
+        DELETE FROM SinhVien WHERE MaLopHoc = @MaLopHoc;
 
         -- Xóa các buổi điểm danh của lớp học trong bảng BuoiDiemDanh
         DELETE FROM BuoiDiemDanh WHERE MaLopHoc = @MaLopHoc;
@@ -135,7 +136,6 @@ BEGIN
 END;
 GO
 
-DROP PROCEDURE DeleteLopHoc;
 
 
 
@@ -252,10 +252,6 @@ INSERT INTO GiangVien (HoTen, SoDienThoai, Email, DiaChi) VALUES
 ('Nguyễn Văn TTTT', '0123456789', 't.nguyen@gmail.com', 'HỒ CHÍ MINH')
 GO
 
-
-
-SELECT * From MonHoc
-SELECT * FROM MonHoc,LopHoc where MonHoc.MaMonHoc=LopHoc.MaMonHoc
 
 
 EXEC DeleteLopHoc @MaLopHoc = 1;
