@@ -38,5 +38,21 @@ namespace DiemDanhChoGV
             f.ShowDialog();
             
         }
+
+        private void formChonPhuongThucDiemDanh_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGGForms_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Su dung gg forms");
+        }
+
+        private void btnQuetMa_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Su dung quet ma vach");
+
+        }
     }
 }
