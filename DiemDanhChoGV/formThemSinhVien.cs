@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using ClosedXML.Excel;
 using System.IO;
 using System.Linq;
-using DocumentFormat.OpenXml.Drawing.Diagrams;
+//using DocumentFormat.OpenXml.Drawing.Diagrams;
 
 namespace DiemDanhChoGV
 {
