@@ -35,24 +35,24 @@
             this.btnHuyBo = new System.Windows.Forms.Button();
             this.lbNgayBatDau = new System.Windows.Forms.Label();
             this.btnCapNhat = new System.Windows.Forms.Button();
-            this.txtMonHocID = new System.Windows.Forms.TextBox();
-            this.lblMonHocID = new System.Windows.Forms.Label();
+            this.lblTênMonHoc = new System.Windows.Forms.Label();
             this.txtTenLopHoc = new System.Windows.Forms.TextBox();
             this.lbTenLopHoc = new System.Windows.Forms.Label();
+            this.cbxTenMonHoc = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.cbxTenMonHoc);
             this.panel1.Controls.Add(this.dtpNgayKetThuc);
             this.panel1.Controls.Add(this.dtpNgayBatDau);
             this.panel1.Controls.Add(this.lbNgayKetThuc);
             this.panel1.Controls.Add(this.btnHuyBo);
             this.panel1.Controls.Add(this.lbNgayBatDau);
             this.panel1.Controls.Add(this.btnCapNhat);
-            this.panel1.Controls.Add(this.txtMonHocID);
-            this.panel1.Controls.Add(this.lblMonHocID);
+            this.panel1.Controls.Add(this.lblTênMonHoc);
             this.panel1.Controls.Add(this.txtTenLopHoc);
             this.panel1.Controls.Add(this.lbTenLopHoc);
             this.panel1.Location = new System.Drawing.Point(63, 13);
@@ -139,28 +139,16 @@
             this.btnCapNhat.UseVisualStyleBackColor = false;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
-            // txtMonHocID
+            // lblTênMonHoc
             // 
-            this.txtMonHocID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMonHocID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtMonHocID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMonHocID.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.txtMonHocID.Location = new System.Drawing.Point(7, 62);
-            this.txtMonHocID.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.txtMonHocID.Name = "txtMonHocID";
-            this.txtMonHocID.Size = new System.Drawing.Size(462, 25);
-            this.txtMonHocID.TabIndex = 9;
-            // 
-            // lblMonHocID
-            // 
-            this.lblMonHocID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMonHocID.AutoSize = true;
-            this.lblMonHocID.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonHocID.Location = new System.Drawing.Point(7, 19);
-            this.lblMonHocID.Name = "lblMonHocID";
-            this.lblMonHocID.Size = new System.Drawing.Size(81, 19);
-            this.lblMonHocID.TabIndex = 11;
-            this.lblMonHocID.Text = "ID môn học";
+            this.lblTênMonHoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTênMonHoc.AutoSize = true;
+            this.lblTênMonHoc.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTênMonHoc.Location = new System.Drawing.Point(7, 19);
+            this.lblTênMonHoc.Name = "lblTênMonHoc";
+            this.lblTênMonHoc.Size = new System.Drawing.Size(91, 19);
+            this.lblTênMonHoc.TabIndex = 11;
+            this.lblTênMonHoc.Text = "Tên Môn Học";
             // 
             // txtTenLopHoc
             // 
@@ -184,6 +172,15 @@
             this.lbTenLopHoc.Size = new System.Drawing.Size(79, 19);
             this.lbTenLopHoc.TabIndex = 10;
             this.lbTenLopHoc.Text = "Tên lớp học";
+            // 
+            // cbxTenMonHoc
+            // 
+            this.cbxTenMonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbxTenMonHoc.FormattingEnabled = true;
+            this.cbxTenMonHoc.Location = new System.Drawing.Point(11, 53);
+            this.cbxTenMonHoc.Name = "cbxTenMonHoc";
+            this.cbxTenMonHoc.Size = new System.Drawing.Size(422, 24);
+            this.cbxTenMonHoc.TabIndex = 39;
             // 
             // formCapNhatLopHoc
             // 
@@ -209,12 +206,12 @@
         private System.Windows.Forms.Button btnHuyBo;
         private System.Windows.Forms.Label lbNgayBatDau;
         private System.Windows.Forms.Button btnCapNhat;
-        private System.Windows.Forms.TextBox txtMonHocID;
-        private System.Windows.Forms.Label lblMonHocID;
+        private System.Windows.Forms.Label lblTênMonHoc;
         private System.Windows.Forms.TextBox txtTenLopHoc;
         private System.Windows.Forms.Label lbTenLopHoc;
         private System.Windows.Forms.DateTimePicker dtpNgayKetThuc;
         private System.Windows.Forms.DateTimePicker dtpNgayBatDau;
         private System.Windows.Forms.Label lbNgayKetThuc;
+        private System.Windows.Forms.ComboBox cbxTenMonHoc;
     }
 }

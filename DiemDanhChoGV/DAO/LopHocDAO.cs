@@ -72,7 +72,7 @@ namespace DiemDanhChoGV.DAO
         public bool UpdateLopHoc(int maLopHoc, string tenLop, int monHocID, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
             string query = "UPDATE LopHoc SET TenLop = @tenLop , MonHocID = @monHocID , NgayBatDau = @ngayBatDau , NgayKetThuc = @ngayKetThuc WHERE MaLopHoc = @maLopHoc ";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenLop, monHocID, ngayBatDau, ngayKetThuc , monHocID });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenLop, monHocID, ngayBatDau, ngayKetThuc, maLopHoc });
             return result > 0;
         }
     }

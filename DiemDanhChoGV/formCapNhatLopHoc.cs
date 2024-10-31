@@ -15,10 +15,12 @@ namespace DiemDanhChoGV
     public partial class formCapNhatLopHoc : Form
     {
         int maLopHoc;
+        List<MonHoc> danhSachMonHoc = null;
         public formCapNhatLopHoc(int MaLopHoc)
         {
             InitializeComponent();
             this.maLopHoc = MaLopHoc;
+            this.danhSachMonHoc = MonHocDAO.Instance.GetDanhSachMonHoc();
         }
 
         void LoadForm()
@@ -27,8 +29,17 @@ namespace DiemDanhChoGV
             LopHoc lopHoc = LopHocDAO.Instance.GetLopHocByMaLopHoc(maLopHoc);
             if (lopHoc != null)
             {
+                // Xóa các mục hiện có trong ComboBox
+                cbxTenMonHoc.Items.Clear();
+
+                // Thêm từng môn học vào ComboBox
+                foreach (MonHoc monHoc in danhSachMonHoc)
+                {
+                    cbxTenMonHoc.Items.Add(monHoc);
+                }
+                cbxTenMonHoc.DisplayMember = "TenMonHoc";
                 // Gán giá trị vào các TextBox và DateTimePicker
-                txtMonHocID.Text = Convert.ToString(lopHoc.MonHocID);
+                cbxTenMonHoc.SelectedIndex = lopHoc.MonHocID - 1;
                 txtTenLopHoc.Text = lopHoc.TenLop;
                 dtpNgayBatDau.Value = lopHoc.NgayBatDau;
                 dtpNgayKetThuc.Value = lopHoc.NgayKetThuc;
@@ -43,7 +54,8 @@ namespace DiemDanhChoGV
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             // Lấy thông tin từ các TextBox và DateTimePicker
-            int  monHocID = Convert.ToInt32(txtMonHocID.Text);
+            string tenMonHoc = cbxTenMonHoc.Text;
+            int monHocID = MonHocDAO.Instance.TimMonHocIDTheoTenMonHoc(tenMonHoc);
             string tenLop = txtTenLopHoc.Text;
             DateTime ngayBatDau = dtpNgayBatDau.Value;
             DateTime ngayKetThuc = dtpNgayKetThuc.Value;
