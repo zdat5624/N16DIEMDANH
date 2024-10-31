@@ -66,6 +66,20 @@ namespace DiemDanhChoGV.DAO
             return -1;
         }
 
+        // Phương thức để lấy tên môn học
+        public string GetTenMonHoc(int monHocID)
+        {
+            string query = "SELECT TenMonHoc FROM MonHoc WHERE MonHocID = @monHocID";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { monHocID });
+
+            if (data.Rows.Count > 0)
+            {
+                return data.Rows[0]["TenMonHoc"].ToString(); // Trả về tên môn học
+            }
+
+            return null; // Nếu không tìm thấy, trả về null hoặc giá trị mặc định
+        }
+
         public List<MonHoc> GetDanhSachMonHoc()
         {
             List<MonHoc> list = new List<MonHoc>();
