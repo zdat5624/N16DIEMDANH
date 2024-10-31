@@ -54,7 +54,9 @@ namespace DiemDanhChoGV
 
         private void btnQuetMa_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Su dung quet ma vach");
+            formDiemDanhMaVach f = new formDiemDanhMaVach(lopHoc, monHoc, danhSachSinhVien, danhSachBuoiDiemDanh, danhSachDiemDanh, maBuoiDiemDanh);
+            this.Close();
+            f.ShowDialog();
 
         }
     }

@@ -42,11 +42,12 @@ namespace DiemDanhChoGV
             // Cột Mã số sinh viên
             DataGridViewTextBoxColumn maSVColumn = new DataGridViewTextBoxColumn
             {
-                HeaderText = "Mã số sinh viên",
+                HeaderText = "Mã số",
                 DataPropertyName = "MaSinhVien",
                 Name = "MSSV",
                 Width = 150,
-                ReadOnly = true
+                ReadOnly = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             dtgvDiemDanh.Columns.Add(maSVColumn);
 
@@ -66,7 +67,8 @@ namespace DiemDanhChoGV
             {
                 HeaderText = "Có mặt",
                 Name = "coMat",
-                Width = 80
+                Width = 80,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             dtgvDiemDanh.Columns.Add(coMatColumn);
 
@@ -75,7 +77,8 @@ namespace DiemDanhChoGV
             {
                 HeaderText = "Vắng mặt",
                 Name = "vangMat",
-                Width = 80
+                Width = 80,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
             };
             dtgvDiemDanh.Columns.Add(vangMatColumn);
 

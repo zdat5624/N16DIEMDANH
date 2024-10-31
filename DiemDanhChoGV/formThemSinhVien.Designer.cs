@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnDan = new System.Windows.Forms.Button();
             this.txtMaSinhVienCell = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtHoTenCell = new System.Windows.Forms.TextBox();
@@ -42,13 +45,12 @@
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.lbSoDienThoai = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnLuu = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgvDanhSachSinhVien = new System.Windows.Forms.DataGridView();
-            this.btnDan = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -74,6 +76,38 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(310, 569);
             this.panel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(17, 244);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(210, 19);
+            this.label4.TabIndex = 45;
+            this.label4.Text = "Dán dữ liệu sinh viên từ excel";
+            // 
+            // btnDan
+            // 
+            this.btnDan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(200)))));
+            this.btnDan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDan.FlatAppearance.BorderSize = 0;
+            this.btnDan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDan.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDan.ForeColor = System.Drawing.Color.White;
+            this.btnDan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDan.Location = new System.Drawing.Point(20, 265);
+            this.btnDan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDan.Name = "btnDan";
+            this.btnDan.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnDan.Size = new System.Drawing.Size(96, 40);
+            this.btnDan.TabIndex = 44;
+            this.btnDan.Text = "Dán";
+            this.btnDan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDan.UseVisualStyleBackColor = false;
+            this.btnDan.Click += new System.EventHandler(this.btnDan_Click);
             // 
             // txtMaSinhVienCell
             // 
@@ -223,6 +257,21 @@
             this.panel2.Size = new System.Drawing.Size(233, 569);
             this.panel2.TabIndex = 1;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.richTextBox1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(233, 184);
+            this.richTextBox1.TabIndex = 40;
+            this.richTextBox1.Text = "*Tự động loại bỏ những sinh viên bị trùng mã số sinh viên khi thêm vào danh sách " +
+    "chuẩn bị thêm.\n*Bấm hai lần liên tiếp vào một hàng trong Danh sách sinh viên chu" +
+    "ẩn bị thêm để xóa sinh viên.";
+            // 
             // btnLuu
             // 
             this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -276,14 +325,14 @@
             this.dtgvDanhSachSinhVien.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dtgvDanhSachSinhVien.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtgvDanhSachSinhVien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvDanhSachSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(182)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvDanhSachSinhVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvDanhSachSinhVien.ColumnHeadersHeight = 30;
             this.dtgvDanhSachSinhVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgvDanhSachSinhVien.EnableHeadersVisualStyles = false;
@@ -291,14 +340,14 @@
             this.dtgvDanhSachSinhVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtgvDanhSachSinhVien.Name = "dtgvDanhSachSinhVien";
             this.dtgvDanhSachSinhVien.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvDanhSachSinhVien.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvDanhSachSinhVien.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgvDanhSachSinhVien.RowHeadersWidth = 51;
             this.dtgvDanhSachSinhVien.RowTemplate.Height = 24;
             this.dtgvDanhSachSinhVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -306,52 +355,11 @@
             this.dtgvDanhSachSinhVien.TabIndex = 42;
             this.dtgvDanhSachSinhVien.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDanhSachSinhVien_CellDoubleClick);
             // 
-            // btnDan
+            // contextMenuStrip1
             // 
-            this.btnDan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(200)))));
-            this.btnDan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnDan.FlatAppearance.BorderSize = 0;
-            this.btnDan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDan.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDan.ForeColor = System.Drawing.Color.White;
-            this.btnDan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDan.Location = new System.Drawing.Point(20, 265);
-            this.btnDan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDan.Name = "btnDan";
-            this.btnDan.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnDan.Size = new System.Drawing.Size(96, 40);
-            this.btnDan.TabIndex = 44;
-            this.btnDan.Text = "Dán";
-            this.btnDan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDan.UseVisualStyleBackColor = false;
-            this.btnDan.Click += new System.EventHandler(this.btnDan_Click);
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 244);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(210, 19);
-            this.label4.TabIndex = 45;
-            this.label4.Text = "Dán dữ liệu sinh viên từ excel";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.richTextBox1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(233, 184);
-            this.richTextBox1.TabIndex = 40;
-            this.richTextBox1.Text = "*Tự động loại bỏ những sinh viên bị trùng mã số sinh viên khi thêm vào danh sách " +
-    "chuẩn bị thêm.\n*Bấm hai lần liên tiếp vào một hàng trong Danh sách sinh viên chu" +
-    "ẩn bị thêm để xóa sinh viên.";
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // formThemSinhVien
             // 
@@ -383,8 +391,6 @@
         private System.Windows.Forms.DataGridView dtgvDanhSachSinhVien;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThemMotSinhVien;
-        private System.Windows.Forms.TextBox txtMaSinhVien;
-        private System.Windows.Forms.Label lbHoTen;
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.Label lbSoDienThoai;
         private System.Windows.Forms.Button btnLuu;
@@ -396,5 +402,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnDan;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox txtMaSinhVien;
+        private System.Windows.Forms.Label lbHoTen;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

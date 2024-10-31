@@ -88,14 +88,14 @@ namespace DiemDanhChoGV
             // tsLopHoc
             // 
             this.tsLopHoc.Name = "tsLopHoc";
-            this.tsLopHoc.Size = new System.Drawing.Size(180, 22);
+            this.tsLopHoc.Size = new System.Drawing.Size(150, 26);
             this.tsLopHoc.Text = "Lớp học";
             this.tsLopHoc.Click += new System.EventHandler(this.tsLopHoc_Click);
             // 
             // tsMonHoc
             // 
             this.tsMonHoc.Name = "tsMonHoc";
-            this.tsMonHoc.Size = new System.Drawing.Size(180, 22);
+            this.tsMonHoc.Size = new System.Drawing.Size(150, 26);
             this.tsMonHoc.Text = "Môn học";
             this.tsMonHoc.Click += new System.EventHandler(this.tsMonHoc_Click);
             // 
@@ -133,7 +133,7 @@ namespace DiemDanhChoGV
             // tsXuatFileExcel
             // 
             this.tsXuatFileExcel.Name = "tsXuatFileExcel";
-            this.tsXuatFileExcel.Size = new System.Drawing.Size(147, 22);
+            this.tsXuatFileExcel.Size = new System.Drawing.Size(185, 26);
             this.tsXuatFileExcel.Text = "Xuất file Excel";
             this.tsXuatFileExcel.Click += new System.EventHandler(this.tsXuatFileExcel_Click);
             // 
@@ -203,7 +203,7 @@ namespace DiemDanhChoGV
             this.txtTimKiem.Location = new System.Drawing.Point(5, 28);
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(225, 22);
+            this.txtTimKiem.Size = new System.Drawing.Size(225, 27);
             this.txtTimKiem.TabIndex = 4;
             // 
             // dtgvLopHoc
@@ -334,7 +334,7 @@ namespace DiemDanhChoGV
             // 
             // formMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1074, 602);
