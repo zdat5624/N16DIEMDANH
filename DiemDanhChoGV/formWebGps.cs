@@ -6,9 +6,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DiemDanhChoGV.DAO;
 using DiemDanhChoGV.DTO;
 using Newtonsoft.Json.Linq;
-
 namespace XuLyGPS
 {
     public partial class formWebGps : Form
@@ -17,7 +17,8 @@ namespace XuLyGPS
 
         private double myLatitude = 21.028511; // Vĩ độ của bạn
         private double myLongitude = 105.804817; // Kinh độ của bạn
-        private int portNumber = 5001;
+
+        private int portNumber = 5000;
         private int maBuoiDiemDanh;
         private LopHoc lopHoc = null;
         private MonHoc monHoc = null;
@@ -76,14 +77,7 @@ namespace XuLyGPS
             };
             dtgvDiemDanh.Columns.Add(coMatColumn);
 
-            // Cột Vắng mặt
-            DataGridViewCheckBoxColumn vangMatColumn = new DataGridViewCheckBoxColumn
-            {
-                HeaderText = "Vắng mặt",
-                Name = "vangMat",
-                Width = 80
-            };
-            dtgvDiemDanh.Columns.Add(vangMatColumn);
+           
 
             // Duyệt qua danh sách sinh viên để thêm vào DataGridView
             foreach (var sinhVien in danhSachSinhVien)
@@ -103,10 +97,9 @@ namespace XuLyGPS
 
             while (listener.IsListening)
             {
-
                 var context = await listener.GetContextAsync();
                 var request = context.Request;
-
+                double distance = 0;
 
                 if (request != null)
                 {
@@ -120,16 +113,21 @@ namespace XuLyGPS
                             JObject data = JObject.Parse(json);
                             double studentLatitude = (double)data["latitude"];
                             double studentLongitude = (double)data["longitude"];
-                            double distance = CalculateDistance(myLatitude, myLongitude, studentLatitude, studentLongitude);
-                            MessageBox.Show("Khoang cach la :" + distance);
+                            string mssv = (string)data["mssv"];
+                            distance = CalculateDistance(myLatitude, myLongitude, studentLatitude, studentLongitude);
 
-                           
+                            int sinhVienID = GetSinhVienIDbyMaSinhVien(mssv);
+                            if(sinhVienID != -1)
+                            {
+                                UpdateAttendanceStatus(mssv, true);
+                            }
                         }
                     }
 
                     
                     var response = context.Response;
-                    string responseString = "{\"status\":\"OK\"}";
+                    string responseString = distance < 0.5?"{\"status\":\"OK\"}": "{\"status\":\"err\"}";
+
                     response.Headers.Add("Access-Control-Allow-Origin", "https://dat9999999.github.io");
                     response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
                     response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
@@ -137,6 +135,17 @@ namespace XuLyGPS
                     response.ContentLength64 = buffer.Length;
                     await response.OutputStream.WriteAsync(buffer, 0, buffer.Length);
                     response.OutputStream.Close();
+                }
+            }
+        }
+        private void UpdateAttendanceStatus(string mssv, bool isPresent)
+        {
+            foreach (DataGridViewRow row in dtgvDiemDanh.Rows)
+            {
+                if (row.Cells["MSSV"].Value.ToString() == mssv)
+                {
+                    row.Cells["coMat"].Value = isPresent;
+                    break;
                 }
             }
         }
@@ -163,6 +172,43 @@ namespace XuLyGPS
         private void formWebGps_FormClosed(object sender, FormClosedEventArgs e)
         {
             listener.Prefixes.Clear();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dtgvDiemDanh.Rows)
+            {
+
+                string maSinhVien = (row.Cells["MSSV"].Value).ToString();
+                int sinhVienID = GetSinhVienIDbyMaSinhVien(maSinhVien);
+                int maBuoiDiemDanh = this.maBuoiDiemDanh; // Lấy mã buổi điểm danh hiện tại
+
+                if (sinhVienID == -1)
+                {
+                    return;
+                }
+
+                // Kiểm tra trạng thái
+                int? trangThai = 0; // Mặc định là 0
+                if (row.Cells["coMat"].Value != null && (bool)row.Cells["coMat"].Value == true)
+                {
+                    trangThai = 1; // Có mặt
+                }
+                DiemDanhDAO.Instance.LuuDiemDanh(maBuoiDiemDanh, sinhVienID, trangThai);
+            }
+            MessageBox.Show("Điểm danh đã được lưu.");
+        }
+
+        public int GetSinhVienIDbyMaSinhVien(string maSinhVien)
+        {
+            foreach (SinhVien sv in danhSachSinhVien)
+            {
+                if ((sv.MaSinhVien).Equals(maSinhVien))
+                {
+                    return sv.SinhVienID;
+                }
+            }
+            return -1;
         }
     }
 }
