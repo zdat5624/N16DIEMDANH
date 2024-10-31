@@ -270,6 +270,12 @@
     <Compile Include="formThemMonHoc.Designer.cs">
       <DependentUpon>formThemMonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="formThemSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formThemSinhVien.Designer.cs">
+      <DependentUpon>formThemSinhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formCapNhatMonHoc.resx">
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formThemMonHoc.resx">
       <DependentUpon>formThemMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formThemSinhVien.resx">
+      <DependentUpon>formThemSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

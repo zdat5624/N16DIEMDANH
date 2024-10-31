@@ -48,6 +48,7 @@
             this.dtgvLopHoc = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnThemSinhVien = new System.Windows.Forms.Button();
             this.btnXoaLop = new System.Windows.Forms.Button();
             this.btnDiemDanh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -70,7 +71,7 @@
             this.xuatFileExcelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1074, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1074, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -81,7 +82,7 @@
             this.tsLopHoc,
             this.tsMonHoc});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 26);
             this.toolStripMenuItem1.Text = "Quản lý";
             // 
             // tsLopHoc
@@ -103,20 +104,20 @@
             this.tsThemLopHoc,
             this.tsThemMonHoc});
             this.themToolStripMenuItem.Name = "themToolStripMenuItem";
-            this.themToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.themToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
             this.themToolStripMenuItem.Text = "Thêm";
             // 
             // tsThemLopHoc
             // 
             this.tsThemLopHoc.Name = "tsThemLopHoc";
-            this.tsThemLopHoc.Size = new System.Drawing.Size(224, 26);
+            this.tsThemLopHoc.Size = new System.Drawing.Size(191, 26);
             this.tsThemLopHoc.Text = "Thêm lớp học";
             this.tsThemLopHoc.Click += new System.EventHandler(this.tsThemLopHoc_Click);
             // 
             // tsThemMonHoc
             // 
             this.tsThemMonHoc.Name = "tsThemMonHoc";
-            this.tsThemMonHoc.Size = new System.Drawing.Size(224, 26);
+            this.tsThemMonHoc.Size = new System.Drawing.Size(191, 26);
             this.tsThemMonHoc.Text = "Thêm môn học";
             this.tsThemMonHoc.Click += new System.EventHandler(this.tsThemMonHoc_Click);
             // 
@@ -125,7 +126,7 @@
             this.xuatFileExcelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsXuatFileExcel});
             this.xuatFileExcelToolStripMenuItem.Name = "xuatFileExcelToolStripMenuItem";
-            this.xuatFileExcelToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.xuatFileExcelToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
             this.xuatFileExcelToolStripMenuItem.Text = "Xuất";
             // 
             // tsXuatFileExcel
@@ -146,7 +147,7 @@
             this.lvDanhSachLop.HideSelection = false;
             this.lvDanhSachLop.Location = new System.Drawing.Point(0, 0);
             this.lvDanhSachLop.Name = "lvDanhSachLop";
-            this.lvDanhSachLop.Size = new System.Drawing.Size(238, 480);
+            this.lvDanhSachLop.Size = new System.Drawing.Size(238, 478);
             this.lvDanhSachLop.TabIndex = 1;
             this.lvDanhSachLop.TileSize = new System.Drawing.Size(500, 30);
             this.lvDanhSachLop.UseCompatibleStateImageBehavior = false;
@@ -169,9 +170,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(238, 574);
+            this.panel1.Size = new System.Drawing.Size(238, 572);
             this.panel1.TabIndex = 40;
             // 
             // panel3
@@ -180,7 +181,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 94);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(238, 480);
+            this.panel3.Size = new System.Drawing.Size(238, 478);
             this.panel3.TabIndex = 42;
             // 
             // panel2
@@ -247,7 +248,7 @@
             // 
             this.panel4.Controls.Add(this.lbTieuDe);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(238, 28);
+            this.panel4.Location = new System.Drawing.Point(238, 30);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(836, 94);
             this.panel4.TabIndex = 42;
@@ -255,6 +256,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnThemSinhVien);
             this.panel5.Controls.Add(this.btnXoaLop);
             this.panel5.Controls.Add(this.btnDiemDanh);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -263,9 +265,31 @@
             this.panel5.Size = new System.Drawing.Size(836, 61);
             this.panel5.TabIndex = 43;
             // 
+            // btnThemSinhVien
+            // 
+            this.btnThemSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnThemSinhVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(200)))));
+            this.btnThemSinhVien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnThemSinhVien.FlatAppearance.BorderSize = 0;
+            this.btnThemSinhVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemSinhVien.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemSinhVien.ForeColor = System.Drawing.Color.White;
+            this.btnThemSinhVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThemSinhVien.Location = new System.Drawing.Point(132, 10);
+            this.btnThemSinhVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThemSinhVien.Name = "btnThemSinhVien";
+            this.btnThemSinhVien.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnThemSinhVien.Size = new System.Drawing.Size(120, 40);
+            this.btnThemSinhVien.TabIndex = 35;
+            this.btnThemSinhVien.Text = "Thêm sinh viên";
+            this.btnThemSinhVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThemSinhVien.UseVisualStyleBackColor = false;
+            this.btnThemSinhVien.Visible = false;
+            this.btnThemSinhVien.Click += new System.EventHandler(this.btnThemSinhVien_Click);
+            // 
             // btnXoaLop
             // 
-            this.btnXoaLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnXoaLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoaLop.BackColor = System.Drawing.Color.Red;
             this.btnXoaLop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnXoaLop.FlatAppearance.BorderSize = 0;
@@ -273,7 +297,7 @@
             this.btnXoaLop.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaLop.ForeColor = System.Drawing.Color.White;
             this.btnXoaLop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoaLop.Location = new System.Drawing.Point(631, 10);
+            this.btnXoaLop.Location = new System.Drawing.Point(704, 10);
             this.btnXoaLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoaLop.Name = "btnXoaLop";
             this.btnXoaLop.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -359,6 +383,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsLopHoc;
         private System.Windows.Forms.ToolStripMenuItem tsMonHoc;
         private System.Windows.Forms.Button btnXoaLop;
+        private System.Windows.Forms.Button btnThemSinhVien;
     }
 }
 

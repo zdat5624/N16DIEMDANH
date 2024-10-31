@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DiemDanhChoGV.DAO
 {
@@ -30,7 +27,7 @@ namespace DiemDanhChoGV.DAO
         public List<SinhVien> GetDanhSachSinhVienByMaLopHoc(int maLopHoc)
         {
             List<SinhVien> listSinhVien = new List<SinhVien>();
-            string query = @"SELECT sv.SinhVienID, sv.MaSinhVien, sv.HoTen
+            string query = @"SELECT sv.SinhVienID, sv.MaSinhVien, sv.HoTen, sv.MaLopHoc
                              FROM SinhVien sv
                              WHERE sv.MaLopHoc = @MaLopHoc";
 
@@ -41,6 +38,14 @@ namespace DiemDanhChoGV.DAO
                 listSinhVien.Add(sinhVien);
             }
             return listSinhVien;
+        }
+
+        // Thêm sinh viên
+        public bool ThemSinhVien(string maSinhVien, string hoTen, int maLopHoc)
+        {
+            string query = @"INSERT INTO SinhVien (MaSinhVien, HoTen, MaLopHoc) VALUES ( @MaSinhVien , @HoTen , @MaLopHoc )";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maSinhVien, hoTen, maLopHoc });
+            return result > 0;
         }
     }
 }

@@ -61,12 +61,28 @@ namespace DiemDanhChoGV.DAO
             DataProvider.Instance.ExecuteScalar(query);
         }
 
-        public bool ThemLopHoc(string tenLop, int monHocID, DateTime ngayBatDau, DateTime ngayKetThuc)
+        public int ThemLopHocVaLayID(string tenLop, int monHocID, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
-            string query = "INSERT INTO LopHoc (TenLop, monHocID, NgayBatDau, NgayKetThuc) " +
-                           "VALUES ( @TenLop , @monHocID , @NgayBatDau , @NgayKetThuc )";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenLop, monHocID, ngayBatDau, ngayKetThuc });
-            return result > 0;
+            string query = "INSERT INTO LopHoc (TenLop, MonHocID, NgayBatDau, NgayKetThuc) " +
+                           "OUTPUT INSERTED.MaLopHoc " +
+                           "VALUES ( @TenLop , @MonHocID , @NgayBatDau , @NgayKetThuc )";
+
+            try
+            {
+                // Thực hiện truy vấn và lấy kết quả
+                object result = DataProvider.Instance.ExecuteScalar(query, new object[] { tenLop, monHocID, ngayBatDau, ngayKetThuc });
+
+                // Chuyển đổi kết quả sang int và trả về LopHocID nếu thành công, -1 nếu thất bại
+                return result != null ? Convert.ToInt32(result) : -1;
+            }
+            catch (Exception ex)
+            {
+                // Hiển thị lỗi chi tiết nếu có vấn đề xảy ra
+                Console.WriteLine("Lỗi khi thêm lớp học: " + ex.Message);
+                return -1;
+            }
         }
+
+
     }
 }
