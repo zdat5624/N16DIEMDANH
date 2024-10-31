@@ -348,5 +348,10 @@ namespace DiemDanhChoGV
 
 
         #endregion
+
+        private void formThemSinhVien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
