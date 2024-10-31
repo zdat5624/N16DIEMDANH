@@ -278,6 +278,12 @@ namespace DiemDanhChoGV
             f.ShowDialog();
         }
 
+        private void tsLopHoc_Click(object sender, EventArgs e)
+        {
+            formQuanLyLopHoc f = new formQuanLyLopHoc();
+            f.ShowDialog();
+        }
+
         private void tsThemLopHoc_Click(object sender, EventArgs e)
         {
             formThemLopHoc f = new formThemLopHoc();
@@ -288,5 +294,7 @@ namespace DiemDanhChoGV
                 LoadDtgvDanhSachDiemDanh(this.lopHoc.MaLopHoc, this.lopHoc.MonHocID);
             }
         }
+
+        
     }
 }

@@ -214,6 +214,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formCapNhatLopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCapNhatLopHoc.Designer.cs">
+      <DependentUpon>formCapNhatLopHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formQuanLyLopHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formQuanLyLopHoc.Designer.cs">
+      <DependentUpon>formQuanLyLopHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="formWebGps.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +293,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formCapNhatLopHoc.resx">
+      <DependentUpon>formCapNhatLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formQuanLyLopHoc.resx">
+      <DependentUpon>formQuanLyLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formWebGps.resx">
       <DependentUpon>formWebGps.cs</DependentUpon>
     </EmbeddedResource>
