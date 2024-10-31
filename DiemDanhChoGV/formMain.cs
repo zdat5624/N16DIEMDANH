@@ -148,6 +148,7 @@ namespace DiemDanhChoGV
 
             btnDiemDanh.Visible = true;
             btnXoaLop.Visible = true;
+            btnThemSinhVien.Visible = true;
         }
 
 
@@ -295,6 +296,21 @@ namespace DiemDanhChoGV
             }
         }
 
-        
+        private void btnThemSinhVien_Click(object sender, EventArgs e)
+        {
+            if (this.lopHoc == null )
+            {
+                MessageBox.Show("Vui lòng chọn một lớp học trong danh sách lớp học");
+                return;
+            }
+
+            formThemSinhVien f = new formThemSinhVien(this.lopHoc);
+            f.ShowDialog();
+            LoadForm();
+            if (this.lopHoc != null)
+            {
+                LoadDtgvDanhSachDiemDanh(this.lopHoc.MaLopHoc, this.lopHoc.MonHocID);
+            }
+        }
     }
 }

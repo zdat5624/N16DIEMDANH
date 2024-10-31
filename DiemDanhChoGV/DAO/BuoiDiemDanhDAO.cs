@@ -34,5 +34,15 @@ namespace DiemDanhChoGV.DAO
             }
             return listBuoiDiemDanh;
         }
+
+        public bool ThemBuoiDiemDanh(int maLopHoc, int STT)
+        {
+            string query = "INSERT INTO BuoiDiemDanh (MaLopHoc, STT) VALUES ( @MaLopHoc , @STT )";
+
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maLopHoc, STT });
+
+            return result > 0;
+        }
+
     }
 }

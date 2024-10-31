@@ -9,14 +9,15 @@ using System.Windows.Forms;
 using DiemDanhChoGV.DAO;
 using DiemDanhChoGV.DTO;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 namespace XuLyGPS
 {
     public partial class formWebGps : Form
     {
         private HttpListener listener;
 
-        private double myLatitude = 21.028511; // Vĩ độ của bạn
-        private double myLongitude = 105.804817; // Kinh độ của bạn
+        private double myLatitude = -1; // Vĩ độ của bạn
+        private double myLongitude = -1; // Kinh độ của bạn
 
         private int portNumber = 5000;
         private int maBuoiDiemDanh;
@@ -40,6 +41,11 @@ namespace XuLyGPS
             this.danhSachDiemDanh = danhSachDiemDanh;
             this.maBuoiDiemDanh = maBuoiDiemDanh;
             LoadDataGridView();
+            GetViTriGiangVien();
+        }
+        private void GetViTriGiangVien()
+        {
+
         }
         private void LoadDataGridView()
         {
@@ -95,8 +101,10 @@ namespace XuLyGPS
         private async void ListenForAttendance()
         {
 
+
             while (listener.IsListening)
             {
+
                 var context = await listener.GetContextAsync();
                 var request = context.Request;
                 double distance = 0;
@@ -111,22 +119,39 @@ namespace XuLyGPS
                         {
                             // Chỉ hiển thị chuỗi JSON không rỗng
                             JObject data = JObject.Parse(json);
-                            double studentLatitude = (double)data["latitude"];
-                            double studentLongitude = (double)data["longitude"];
-                            string mssv = (string)data["mssv"];
-                            distance = CalculateDistance(myLatitude, myLongitude, studentLatitude, studentLongitude);
-
-                            int sinhVienID = GetSinhVienIDbyMaSinhVien(mssv);
-                            if(sinhVienID != -1)
+                            //MessageBox.Show((bool)data["lector"] +"");
+                            if ((bool)data["lector"] == false)  
                             {
-                                UpdateAttendanceStatus(mssv, true);
+                                double studentLatitude = (double)data["latitude"];
+                                double studentLongitude = (double)data["longitude"];
+                                string mssv = (string)data["mssv"];
+                                distance = CalculateDistance(myLatitude, myLongitude, studentLatitude, studentLongitude);
+
+                                int sinhVienID = GetSinhVienIDbyMaSinhVien(mssv);
+                                if(sinhVienID != -1)
+                                {
+                                    if(distance < 0.5)
+                                    {
+                                        UpdateAttendanceStatus(mssv, true);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Điểm danh có dấu hiệu khả nghi có mã số" + sinhVienID);
+                                    }
+                                }
+                            }
+                            else 
+                            {
+                                myLatitude = (double)data["latitude"];
+                                myLongitude = (double)data["longitude"];
+                                MessageBox.Show("Đã nhận được vị trí của bạn");
                             }
                         }
                     }
 
                     
                     var response = context.Response;
-                    string responseString = distance < 0.5?"{\"status\":\"OK\"}": "{\"status\":\"err\"}";
+                    string responseString = "{\"status\":\"OK\"}";
 
                     response.Headers.Add("Access-Control-Allow-Origin", "https://dat9999999.github.io");
                     response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
@@ -165,8 +190,26 @@ namespace XuLyGPS
 
         private async void formWebGps_Load(object sender, EventArgs e)
         {
-            
-            await Task.Run(() => ListenForAttendance());
+            //lấy vị trí của giảng viên 
+            string url = "https://dat9999999.github.io/LayViTriGiangVien/"; // thay bằng URL mong muốn
+
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
+
+            DialogResult res = MessageBox.Show("Hãy lấy vị trí hiện tại của bạn để giúp hệ thống giảm thiểu gian lận","Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(res == DialogResult.Yes)
+            {
+                Console.WriteLine("bắt đầu điểm danh");
+                //bắt đầu cho điểm danh 
+                await Task.Run(() => ListenForAttendance());
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private void formWebGps_FormClosed(object sender, FormClosedEventArgs e)

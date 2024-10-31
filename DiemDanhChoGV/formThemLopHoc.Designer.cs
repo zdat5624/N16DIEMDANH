@@ -41,7 +41,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtMaMonHoc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numericUpDownSoBuoi = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoBuoi)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTenLop
@@ -135,7 +138,7 @@
             this.btnHuyBo.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuyBo.ForeColor = System.Drawing.Color.White;
             this.btnHuyBo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHuyBo.Location = new System.Drawing.Point(470, 269);
+            this.btnHuyBo.Location = new System.Drawing.Point(470, 288);
             this.btnHuyBo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHuyBo.Name = "btnHuyBo";
             this.btnHuyBo.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -156,7 +159,7 @@
             this.btnThem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(344, 269);
+            this.btnThem.Location = new System.Drawing.Point(344, 288);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -170,6 +173,8 @@
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel1.Controls.Add(this.numericUpDownSoBuoi);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtMaMonHoc);
             this.panel1.Controls.Add(this.label1);
@@ -222,6 +227,32 @@
             this.label1.TabIndex = 71;
             this.label1.Text = "Tên lớp học";
             // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(55, 245);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(157, 22);
+            this.label4.TabIndex = 75;
+            this.label4.Text = "Số buổi điểm danh";
+            // 
+            // numericUpDownSoBuoi
+            // 
+            this.numericUpDownSoBuoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownSoBuoi.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.numericUpDownSoBuoi.Location = new System.Drawing.Point(218, 242);
+            this.numericUpDownSoBuoi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDownSoBuoi.Name = "numericUpDownSoBuoi";
+            this.numericUpDownSoBuoi.Size = new System.Drawing.Size(372, 30);
+            this.numericUpDownSoBuoi.TabIndex = 76;
+            this.numericUpDownSoBuoi.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // formThemLopHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -230,9 +261,11 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "formThemLopHoc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm lớp học";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSoBuoi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,5 +285,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMaMonHoc;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown numericUpDownSoBuoi;
     }
 }

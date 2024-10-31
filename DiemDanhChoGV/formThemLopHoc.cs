@@ -50,28 +50,31 @@ namespace DiemDanhChoGV
 
         void ThemLopHoc()
         {
-            string tenLop = txtTenLop.Text;
+            string tenLop = txtTenLop.Text.Trim();
             int monHocID = -1;
+
+            // Kiểm tra và lấy MonHocID từ ComboBox
             if (cbbTenMonHoc.SelectedItem is MonHoc selectedMonHoc)
             {
                 monHocID = selectedMonHoc.MonHocID;
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn môn học hợp lệ");
+                MessageBox.Show("Vui lòng chọn môn học hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            } 
-            
+            }
+
             DateTime ngayBatDau = dtpNgayBatDau.Value;
             DateTime ngayKetThuc = dtpNgayKetThuc.Value;
+            int soBuoi = (int)numericUpDownSoBuoi.Value;
 
+            // Kiểm tra dữ liệu đầu vào
             if (string.IsNullOrEmpty(tenLop))
             {
                 MessageBox.Show("Tên lớp không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTenLop.Focus();
                 return;
             }
-
             if (ngayBatDau > ngayKetThuc)
             {
                 MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -79,16 +82,26 @@ namespace DiemDanhChoGV
                 return;
             }
 
-            if (LopHocDAO.Instance.ThemLopHoc(tenLop, monHocID, ngayBatDau, ngayKetThuc))
+            // Thêm lớp học và kiểm tra kết quả
+            int lopHocID = LopHocDAO.Instance.ThemLopHocVaLayID(tenLop, monHocID, ngayBatDau, ngayKetThuc);
+            if (lopHocID > 0)
             {
-                MessageBox.Show("Thêm lớp học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close(); // Đóng form thêm lớp học sau khi thêm thành công
+                // Thêm buổi điểm danh
+                for (int i = 1; i <= soBuoi; i++)
+                {
+                    BuoiDiemDanhDAO.Instance.ThemBuoiDiemDanh(lopHocID, i); // Truyền vào STT của buổi điểm danh
+                }
+
+                MessageBox.Show("Thêm lớp học và buổi điểm danh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Có lỗi xảy ra khi thêm lớp học!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
         private void btnHuyBo_Click(object sender, EventArgs e)
         {
@@ -97,7 +110,6 @@ namespace DiemDanhChoGV
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            // Gọi hàm ThemLopHoc để thêm lớp học vào cơ sở dữ liệu
             ThemLopHoc();
         }
     }
