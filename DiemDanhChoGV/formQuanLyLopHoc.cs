@@ -21,9 +21,22 @@ namespace DiemDanhChoGV
 
         void LoadForm()
         {
+            if (!dataGridViewLopHoc.Columns.Contains("TenMonHoc"))
+            {
+                dataGridViewLopHoc.Columns.Add("TenMonHoc", "Tên Môn Học"); // Thêm cột tên môn học
+            }
             dataGridViewLopHoc.DataSource = LopHocDAO.Instance.GetDanhSachLopHoc();
             dataGridViewLopHoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            foreach (DataGridViewRow row in dataGridViewLopHoc.Rows)
+            {
+                if (row.Cells["MonHocID"].Value != null) // Kiểm tra nếu ID môn học không null
+                {
+                    int monHocID = Convert.ToInt32(row.Cells["MonHocID"].Value); // Lấy ID môn học
+                    string tenMonHoc = MonHocDAO.Instance.GetTenMonHoc(monHocID); // Gọi phương thức để lấy tên môn học
+                    row.Cells["TenMonHoc"].Value = tenMonHoc; // Gán tên môn học vào cột mới
+                }
+            }
             dataGridViewLopHoc.Columns["MonHocID"].HeaderText = "ID môn học";
             dataGridViewLopHoc.Columns["TenLop"].HeaderText = "Tên Lớp Học";
             dataGridViewLopHoc.Columns["NgayBatDau"].HeaderText = "Ngày Bắt Đầu";

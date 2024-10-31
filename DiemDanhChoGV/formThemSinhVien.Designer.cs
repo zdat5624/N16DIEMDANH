@@ -373,6 +373,7 @@
             this.Name = "formThemSinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm sinh viên vào lớp học";
+            this.Load += new System.EventHandler(this.formThemSinhVien_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
