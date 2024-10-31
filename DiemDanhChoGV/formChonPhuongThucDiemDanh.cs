@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using XuLyGPS;
 
 namespace DiemDanhChoGV
 {
@@ -37,6 +38,24 @@ namespace DiemDanhChoGV
             this.Close();
             f.ShowDialog();
             
+        }
+
+        private void formChonPhuongThucDiemDanh_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGGForms_Click(object sender, EventArgs e)
+        {
+            formWebGps f = new formWebGps(lopHoc, monHoc, danhSachSinhVien, danhSachBuoiDiemDanh, danhSachDiemDanh, maBuoiDiemDanh);
+            this.Close();
+            f.ShowDialog();
+        }
+
+        private void btnQuetMa_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Su dung quet ma vach");
+
         }
     }
 }
