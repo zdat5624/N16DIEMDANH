@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbxTenMonHoc = new System.Windows.Forms.ComboBox();
             this.dtpNgayKetThuc = new System.Windows.Forms.DateTimePicker();
             this.dtpNgayBatDau = new System.Windows.Forms.DateTimePicker();
             this.lbNgayKetThuc = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@
             this.lblTênMonHoc = new System.Windows.Forms.Label();
             this.txtTenLopHoc = new System.Windows.Forms.TextBox();
             this.lbTenLopHoc = new System.Windows.Forms.Label();
-            this.cbxTenMonHoc = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(464, 363);
             this.panel1.TabIndex = 35;
+            // 
+            // cbxTenMonHoc
+            // 
+            this.cbxTenMonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.cbxTenMonHoc.FormattingEnabled = true;
+            this.cbxTenMonHoc.Location = new System.Drawing.Point(11, 53);
+            this.cbxTenMonHoc.Name = "cbxTenMonHoc";
+            this.cbxTenMonHoc.Size = new System.Drawing.Size(422, 24);
+            this.cbxTenMonHoc.TabIndex = 39;
             // 
             // dtpNgayKetThuc
             // 
@@ -173,15 +182,6 @@
             this.lbTenLopHoc.TabIndex = 10;
             this.lbTenLopHoc.Text = "Tên lớp học";
             // 
-            // cbxTenMonHoc
-            // 
-            this.cbxTenMonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.cbxTenMonHoc.FormattingEnabled = true;
-            this.cbxTenMonHoc.Location = new System.Drawing.Point(11, 53);
-            this.cbxTenMonHoc.Name = "cbxTenMonHoc";
-            this.cbxTenMonHoc.Size = new System.Drawing.Size(422, 24);
-            this.cbxTenMonHoc.TabIndex = 39;
-            // 
             // formCapNhatLopHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -192,7 +192,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "formCapNhatLopHoc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cập nhật môn học";
+            this.Text = "Cập nhật lớp học";
             this.Load += new System.EventHandler(this.formCapNhatLopHoc_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

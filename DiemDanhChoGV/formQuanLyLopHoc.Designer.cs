@@ -162,7 +162,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.Name = "formQuanLyLopHoc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lý môn học";
+            this.Text = "Quản lý lớp học";
             this.Load += new System.EventHandler(this.formQuanLyLopHoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLopHoc)).EndInit();
             this.panel1.ResumeLayout(false);

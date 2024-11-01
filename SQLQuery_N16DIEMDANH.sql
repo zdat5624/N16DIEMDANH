@@ -183,7 +183,32 @@ BEGIN
 END;
 GO
 
+CREATE PROCEDURE DeleteSinhVien
+    @SinhVienID INT
+AS
+BEGIN
+    -- Bắt đầu transaction để đảm bảo tính toàn vẹn dữ liệu
+    BEGIN TRANSACTION;
 
+    BEGIN TRY
+
+        -- Xóa các bản ghi trong bảng DiemDanh của sinh viên được chọn
+        DELETE FROM DiemDanh WHERE @SinhVienID = @SinhVienID;
+
+        -- Xóa sinh viên ra khỏi bảng sinh viên
+        DELETE FROM SinhVien WHERE SinhVienID = @SinhVienID;
+
+        -- Commit transaction nếu thành công
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Rollback nếu có lỗi
+        ROLLBACK TRANSACTION;
+        -- Hiển thị lỗi
+        THROW;
+    END CATCH
+END;
+GO
 
 
 INSERT INTO MonHoc (MaMonHoc, TenMonHoc, SoTinChi) VALUES
