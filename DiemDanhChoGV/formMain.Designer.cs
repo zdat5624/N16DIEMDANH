@@ -51,6 +51,7 @@ namespace DiemDanhChoGV
             this.btnThemSinhVien = new System.Windows.Forms.Button();
             this.btnXoaLop = new System.Windows.Forms.Button();
             this.btnDiemDanh = new System.Windows.Forms.Button();
+            this.btnCapNhatSinhVien = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -71,7 +72,7 @@ namespace DiemDanhChoGV
             this.xuatFileExcelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1074, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1074, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -82,20 +83,20 @@ namespace DiemDanhChoGV
             this.tsLopHoc,
             this.tsMonHoc});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 20);
             this.toolStripMenuItem1.Text = "Quản lý";
             // 
             // tsLopHoc
             // 
             this.tsLopHoc.Name = "tsLopHoc";
-            this.tsLopHoc.Size = new System.Drawing.Size(150, 26);
+            this.tsLopHoc.Size = new System.Drawing.Size(122, 22);
             this.tsLopHoc.Text = "Lớp học";
             this.tsLopHoc.Click += new System.EventHandler(this.tsLopHoc_Click);
             // 
             // tsMonHoc
             // 
             this.tsMonHoc.Name = "tsMonHoc";
-            this.tsMonHoc.Size = new System.Drawing.Size(150, 26);
+            this.tsMonHoc.Size = new System.Drawing.Size(122, 22);
             this.tsMonHoc.Text = "Môn học";
             this.tsMonHoc.Click += new System.EventHandler(this.tsMonHoc_Click);
             // 
@@ -105,20 +106,20 @@ namespace DiemDanhChoGV
             this.tsThemLopHoc,
             this.tsThemMonHoc});
             this.themToolStripMenuItem.Name = "themToolStripMenuItem";
-            this.themToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
+            this.themToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.themToolStripMenuItem.Text = "Thêm";
             // 
             // tsThemLopHoc
             // 
             this.tsThemLopHoc.Name = "tsThemLopHoc";
-            this.tsThemLopHoc.Size = new System.Drawing.Size(191, 26);
+            this.tsThemLopHoc.Size = new System.Drawing.Size(155, 22);
             this.tsThemLopHoc.Text = "Thêm lớp học";
             this.tsThemLopHoc.Click += new System.EventHandler(this.tsThemLopHoc_Click);
             // 
             // tsThemMonHoc
             // 
             this.tsThemMonHoc.Name = "tsThemMonHoc";
-            this.tsThemMonHoc.Size = new System.Drawing.Size(191, 26);
+            this.tsThemMonHoc.Size = new System.Drawing.Size(155, 22);
             this.tsThemMonHoc.Text = "Thêm môn học";
             this.tsThemMonHoc.Click += new System.EventHandler(this.tsThemMonHoc_Click);
             // 
@@ -127,13 +128,13 @@ namespace DiemDanhChoGV
             this.xuatFileExcelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsXuatFileExcel});
             this.xuatFileExcelToolStripMenuItem.Name = "xuatFileExcelToolStripMenuItem";
-            this.xuatFileExcelToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
+            this.xuatFileExcelToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.xuatFileExcelToolStripMenuItem.Text = "Xuất";
             // 
             // tsXuatFileExcel
             // 
             this.tsXuatFileExcel.Name = "tsXuatFileExcel";
-            this.tsXuatFileExcel.Size = new System.Drawing.Size(185, 26);
+            this.tsXuatFileExcel.Size = new System.Drawing.Size(147, 22);
             this.tsXuatFileExcel.Text = "Xuất file Excel";
             this.tsXuatFileExcel.Click += new System.EventHandler(this.tsXuatFileExcel_Click);
             // 
@@ -148,7 +149,7 @@ namespace DiemDanhChoGV
             this.lvDanhSachLop.HideSelection = false;
             this.lvDanhSachLop.Location = new System.Drawing.Point(0, 0);
             this.lvDanhSachLop.Name = "lvDanhSachLop";
-            this.lvDanhSachLop.Size = new System.Drawing.Size(238, 478);
+            this.lvDanhSachLop.Size = new System.Drawing.Size(238, 484);
             this.lvDanhSachLop.TabIndex = 1;
             this.lvDanhSachLop.TileSize = new System.Drawing.Size(500, 30);
             this.lvDanhSachLop.UseCompatibleStateImageBehavior = false;
@@ -171,9 +172,9 @@ namespace DiemDanhChoGV
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(238, 572);
+            this.panel1.Size = new System.Drawing.Size(238, 578);
             this.panel1.TabIndex = 40;
             // 
             // panel3
@@ -182,7 +183,7 @@ namespace DiemDanhChoGV
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 94);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(238, 478);
+            this.panel3.Size = new System.Drawing.Size(238, 484);
             this.panel3.TabIndex = 42;
             // 
             // panel2
@@ -203,7 +204,7 @@ namespace DiemDanhChoGV
             this.txtTimKiem.Location = new System.Drawing.Point(5, 28);
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(225, 27);
+            this.txtTimKiem.Size = new System.Drawing.Size(225, 22);
             this.txtTimKiem.TabIndex = 4;
             // 
             // dtgvLopHoc
@@ -249,7 +250,7 @@ namespace DiemDanhChoGV
             // 
             this.panel4.Controls.Add(this.lbTieuDe);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(238, 30);
+            this.panel4.Location = new System.Drawing.Point(238, 24);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(836, 94);
             this.panel4.TabIndex = 42;
@@ -257,6 +258,7 @@ namespace DiemDanhChoGV
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnCapNhatSinhVien);
             this.panel5.Controls.Add(this.btnThemSinhVien);
             this.panel5.Controls.Add(this.btnXoaLop);
             this.panel5.Controls.Add(this.btnDiemDanh);
@@ -332,9 +334,31 @@ namespace DiemDanhChoGV
             this.btnDiemDanh.Visible = false;
             this.btnDiemDanh.Click += new System.EventHandler(this.btnDiemDanh_Click);
             // 
+            // btnCapNhatSinhVien
+            // 
+            this.btnCapNhatSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCapNhatSinhVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(200)))));
+            this.btnCapNhatSinhVien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCapNhatSinhVien.FlatAppearance.BorderSize = 0;
+            this.btnCapNhatSinhVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCapNhatSinhVien.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhatSinhVien.ForeColor = System.Drawing.Color.White;
+            this.btnCapNhatSinhVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCapNhatSinhVien.Location = new System.Drawing.Point(258, 10);
+            this.btnCapNhatSinhVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCapNhatSinhVien.Name = "btnCapNhatSinhVien";
+            this.btnCapNhatSinhVien.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCapNhatSinhVien.Size = new System.Drawing.Size(120, 40);
+            this.btnCapNhatSinhVien.TabIndex = 36;
+            this.btnCapNhatSinhVien.Text = "Cập nhật sinh viên";
+            this.btnCapNhatSinhVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCapNhatSinhVien.UseVisualStyleBackColor = false;
+            this.btnCapNhatSinhVien.Visible = false;
+            this.btnCapNhatSinhVien.Click += new System.EventHandler(this.btnCapNhatSinhVien_Click);
+            // 
             // formMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1074, 602);
@@ -385,6 +409,7 @@ namespace DiemDanhChoGV
         private System.Windows.Forms.ToolStripMenuItem tsMonHoc;
         private System.Windows.Forms.Button btnXoaLop;
         private System.Windows.Forms.Button btnThemSinhVien;
+        private System.Windows.Forms.Button btnCapNhatSinhVien;
     }
 }
 

@@ -218,6 +218,12 @@
     <Compile Include="formCapNhatLopHoc.Designer.cs">
       <DependentUpon>formCapNhatLopHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="formCapNhatSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formCapNhatSinhVien.Designer.cs">
+      <DependentUpon>formCapNhatSinhVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="formDiemDanhMaVach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +311,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formCapNhatLopHoc.resx">
       <DependentUpon>formCapNhatLopHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formCapNhatSinhVien.resx">
+      <DependentUpon>formCapNhatSinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formDiemDanhMaVach.resx">
       <DependentUpon>formDiemDanhMaVach.cs</DependentUpon>

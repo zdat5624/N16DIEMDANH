@@ -103,7 +103,7 @@ namespace DiemDanhChoGV
             formCapNhatLopHoc f = new formCapNhatLopHoc(maLopHoc);
             f.ShowDialog();
 
-            // Tải lại danh sách môn học sau khi cập nhật
+            // Tải lại danh sách lớp học sau khi cập nhật
             LoadForm();
             DataChanged?.Invoke();
         }

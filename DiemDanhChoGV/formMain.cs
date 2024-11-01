@@ -149,6 +149,7 @@ namespace DiemDanhChoGV
             btnDiemDanh.Visible = true;
             btnXoaLop.Visible = true;
             btnThemSinhVien.Visible = true;
+            btnCapNhatSinhVien.Visible = true;
         }
 
 
@@ -310,6 +311,36 @@ namespace DiemDanhChoGV
 
             formThemSinhVien f = new formThemSinhVien(this.lopHoc);
             f.ShowDialog();
+            LoadForm();
+            if (this.lopHoc != null)
+            {
+                LoadDtgvDanhSachDiemDanh(this.lopHoc.MaLopHoc, this.lopHoc.MonHocID);
+            }
+        }
+
+        private void btnCapNhatSinhVien_Click(object sender, EventArgs e)
+        {
+            if (this.lopHoc == null)
+            {
+                MessageBox.Show("Vui lòng chọn một lớp học trong danh sách lớp học");
+                return;
+            }
+
+            // Kiểm tra xem người dùng đã chọn sinh viên nào để cập nhật chưa
+            if (dtgvLopHoc.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn một sinh viên để cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Lấy thông tin sinh viên đã chọn
+            string maSinhVien = dtgvLopHoc.CurrentRow.Cells["MaSinhVien"].Value.ToString();
+
+            // Mở form cập nhật lớp học và truyền vào maLopHoc
+            formCapNhatSinhVien f = new formCapNhatSinhVien(maSinhVien);
+            f.ShowDialog();
+
+            // Tải lại danh sách sinh viên sau khi cập nhật
             LoadForm();
             if (this.lopHoc != null)
             {
