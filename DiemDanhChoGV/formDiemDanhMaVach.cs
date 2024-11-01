@@ -178,6 +178,7 @@ namespace DiemDanhChoGV
             }
 
             bool flag = false;
+            string tenSinhVien = "";
             // Duyệt qua từng hàng của DataGridView để tìm sinh viên có mã số phù hợp
             foreach (DataGridViewRow row in dtgvDiemDanh.Rows)
             {
@@ -192,6 +193,7 @@ namespace DiemDanhChoGV
                     // Đặt trạng thái có mặt và vắng mặt
                     row.Cells["coMat"].Value = true;
                     row.Cells["vangMat"].Value = false;
+                    tenSinhVien = row.Cells["Ten"].Value.ToString();
                     flag = true;
                     break;
                 }
@@ -199,7 +201,7 @@ namespace DiemDanhChoGV
 
             if (flag)
             {
-                richTextBoxThongBao.Text = $"Thành công! Điểm danh sinh viên '{maSinhVien}'";
+                richTextBoxThongBao.Text = $"Thành công! Điểm danh sinh viên '{maSinhVien} - {tenSinhVien}'";
                 richTextBoxThongBao.BackColor = Color.Green;
                 txtMaSinhVien.Clear();
             }
