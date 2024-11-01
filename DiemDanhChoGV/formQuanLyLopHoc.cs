@@ -13,6 +13,7 @@ namespace DiemDanhChoGV
 {
     public partial class formQuanLyLopHoc : Form
     {
+        public event Action DataChanged;
         public formQuanLyLopHoc()
         {
             InitializeComponent();
@@ -72,6 +73,7 @@ namespace DiemDanhChoGV
                 LopHocDAO.Instance.DeleteLopHoc(maLopHoc);
                 MessageBox.Show("lớp học đã được xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadForm();
+                DataChanged?.Invoke();
             }
         }
 
@@ -82,6 +84,7 @@ namespace DiemDanhChoGV
             formThemLopHoc f = new formThemLopHoc();
             f.ShowDialog();
             LoadForm();
+            DataChanged?.Invoke();
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -102,6 +105,7 @@ namespace DiemDanhChoGV
 
             // Tải lại danh sách môn học sau khi cập nhật
             LoadForm();
+            DataChanged?.Invoke();
         }
     }
 }

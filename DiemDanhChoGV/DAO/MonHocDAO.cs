@@ -40,19 +40,6 @@ namespace DiemDanhChoGV.DAO
             return null;
         }
 
-        public string TimTenMonHocTheoMonHocID(int monHocID)
-        {
-            string query = "SELECT TenMonHoc FROM MonHoc WHERE MonHocID = @monHocID ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { monHocID });
-
-            if (data.Rows.Count > 0)
-            {
-                return data.Rows[0]["TenMonHoc"].ToString();
-            }
-
-            return null;
-        }
-
         public int TimMonHocIDTheoTenMonHoc(string tenMonHoc)
         {
             string query = "SELECT MonHocID FROM MonHoc WHERE TenMonHoc = @tenMonHoc ";

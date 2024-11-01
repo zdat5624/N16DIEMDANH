@@ -282,6 +282,10 @@ namespace DiemDanhChoGV
         private void tsLopHoc_Click(object sender, EventArgs e)
         {
             formQuanLyLopHoc f = new formQuanLyLopHoc();
+
+            // Đăng ký sự kiện DataChanged để cập nhật dữ liệu khi có thay đổi trong formQuanLyLopHoc
+            f.DataChanged += LoadForm;
+
             f.ShowDialog();
         }
 
