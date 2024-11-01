@@ -150,6 +150,7 @@ namespace DiemDanhChoGV
             btnXoaLop.Visible = true;
             btnThemSinhVien.Visible = true;
             btnCapNhatSinhVien.Visible = true;
+            btnXoaSinhVien.Visible = true;
         }
 
 
@@ -345,6 +346,40 @@ namespace DiemDanhChoGV
             if (this.lopHoc != null)
             {
                 LoadDtgvDanhSachDiemDanh(this.lopHoc.MaLopHoc, this.lopHoc.MonHocID);
+            }
+        }
+
+        private void btnXoaSinhVien_Click(object sender, EventArgs e)
+        {
+            if (this.lopHoc == null)
+            {
+                MessageBox.Show("Vui lòng chọn một lớp học trong danh sách lớp học");
+                return;
+            }
+            // Kiểm tra xem người dùng đã chọn sinh viên nào để xóa chưa
+            if (dtgvLopHoc.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn một sinh viên để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Lấy thông tin sinh viên đã chọn
+            string maSinhVien = dtgvLopHoc.CurrentRow.Cells["MaSinhVien"].Value.ToString();
+            int sinhVienID = SinhVienDAO.Instance.GetSinhVienIDByMaSinhVien(maSinhVien);
+
+            // Hiển thị thông báo cảnh báo người dùng
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa sinh viên này?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                // Gọi phương thức xóa sinh viên từ DAO
+                SinhVienDAO.Instance.XoaSinhVien(sinhVienID);
+                MessageBox.Show("Sinh viên đã được xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadForm();
+                if (this.lopHoc != null)
+                {
+                    LoadDtgvDanhSachDiemDanh(this.lopHoc.MaLopHoc, this.lopHoc.MonHocID);
+                }
             }
         }
     }

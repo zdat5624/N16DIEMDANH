@@ -88,5 +88,11 @@ namespace DiemDanhChoGV.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maSinhVien, hoTen, maLopHoc, sinhVienID });
             return result > 0;
         }
+        // Xóa sinh viên
+        public void XoaSinhVien(int sinhVienID)
+        {
+            string query = "EXEC DeleteSinhVien @SinhVienID = " + sinhVienID;
+            DataProvider.Instance.ExecuteScalar(query);
+        }
     }
 }

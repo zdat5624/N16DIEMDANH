@@ -48,10 +48,11 @@ namespace DiemDanhChoGV
             this.dtgvLopHoc = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnCapNhatSinhVien = new System.Windows.Forms.Button();
             this.btnThemSinhVien = new System.Windows.Forms.Button();
             this.btnXoaLop = new System.Windows.Forms.Button();
             this.btnDiemDanh = new System.Windows.Forms.Button();
-            this.btnCapNhatSinhVien = new System.Windows.Forms.Button();
+            this.btnXoaSinhVien = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -258,6 +259,7 @@ namespace DiemDanhChoGV
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnXoaSinhVien);
             this.panel5.Controls.Add(this.btnCapNhatSinhVien);
             this.panel5.Controls.Add(this.btnThemSinhVien);
             this.panel5.Controls.Add(this.btnXoaLop);
@@ -267,6 +269,28 @@ namespace DiemDanhChoGV
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(836, 61);
             this.panel5.TabIndex = 43;
+            // 
+            // btnCapNhatSinhVien
+            // 
+            this.btnCapNhatSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCapNhatSinhVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(200)))));
+            this.btnCapNhatSinhVien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCapNhatSinhVien.FlatAppearance.BorderSize = 0;
+            this.btnCapNhatSinhVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCapNhatSinhVien.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhatSinhVien.ForeColor = System.Drawing.Color.White;
+            this.btnCapNhatSinhVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCapNhatSinhVien.Location = new System.Drawing.Point(258, 10);
+            this.btnCapNhatSinhVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCapNhatSinhVien.Name = "btnCapNhatSinhVien";
+            this.btnCapNhatSinhVien.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCapNhatSinhVien.Size = new System.Drawing.Size(120, 40);
+            this.btnCapNhatSinhVien.TabIndex = 36;
+            this.btnCapNhatSinhVien.Text = "Cập nhật sinh viên";
+            this.btnCapNhatSinhVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCapNhatSinhVien.UseVisualStyleBackColor = false;
+            this.btnCapNhatSinhVien.Visible = false;
+            this.btnCapNhatSinhVien.Click += new System.EventHandler(this.btnCapNhatSinhVien_Click);
             // 
             // btnThemSinhVien
             // 
@@ -334,27 +358,27 @@ namespace DiemDanhChoGV
             this.btnDiemDanh.Visible = false;
             this.btnDiemDanh.Click += new System.EventHandler(this.btnDiemDanh_Click);
             // 
-            // btnCapNhatSinhVien
+            // btnXoaSinhVien
             // 
-            this.btnCapNhatSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCapNhatSinhVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(200)))));
-            this.btnCapNhatSinhVien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnCapNhatSinhVien.FlatAppearance.BorderSize = 0;
-            this.btnCapNhatSinhVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCapNhatSinhVien.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhatSinhVien.ForeColor = System.Drawing.Color.White;
-            this.btnCapNhatSinhVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCapNhatSinhVien.Location = new System.Drawing.Point(258, 10);
-            this.btnCapNhatSinhVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCapNhatSinhVien.Name = "btnCapNhatSinhVien";
-            this.btnCapNhatSinhVien.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCapNhatSinhVien.Size = new System.Drawing.Size(120, 40);
-            this.btnCapNhatSinhVien.TabIndex = 36;
-            this.btnCapNhatSinhVien.Text = "Cập nhật sinh viên";
-            this.btnCapNhatSinhVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCapNhatSinhVien.UseVisualStyleBackColor = false;
-            this.btnCapNhatSinhVien.Visible = false;
-            this.btnCapNhatSinhVien.Click += new System.EventHandler(this.btnCapNhatSinhVien_Click);
+            this.btnXoaSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnXoaSinhVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(200)))));
+            this.btnXoaSinhVien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnXoaSinhVien.FlatAppearance.BorderSize = 0;
+            this.btnXoaSinhVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoaSinhVien.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaSinhVien.ForeColor = System.Drawing.Color.White;
+            this.btnXoaSinhVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXoaSinhVien.Location = new System.Drawing.Point(384, 10);
+            this.btnXoaSinhVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnXoaSinhVien.Name = "btnXoaSinhVien";
+            this.btnXoaSinhVien.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnXoaSinhVien.Size = new System.Drawing.Size(120, 40);
+            this.btnXoaSinhVien.TabIndex = 37;
+            this.btnXoaSinhVien.Text = "Xóa sinh viên";
+            this.btnXoaSinhVien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnXoaSinhVien.UseVisualStyleBackColor = false;
+            this.btnXoaSinhVien.Visible = false;
+            this.btnXoaSinhVien.Click += new System.EventHandler(this.btnXoaSinhVien_Click);
             // 
             // formMain
             // 
@@ -410,6 +434,7 @@ namespace DiemDanhChoGV
         private System.Windows.Forms.Button btnXoaLop;
         private System.Windows.Forms.Button btnThemSinhVien;
         private System.Windows.Forms.Button btnCapNhatSinhVien;
+        private System.Windows.Forms.Button btnXoaSinhVien;
     }
 }
 
