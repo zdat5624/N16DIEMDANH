@@ -32,21 +32,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBoxTuDongVang = new System.Windows.Forms.CheckBox();
             this.cbbCamera = new System.Windows.Forms.ComboBox();
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.lblChonCamera = new System.Windows.Forms.Label();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnDiemDanh = new System.Windows.Forms.Button();
+            this.richTextBoxThongBao = new System.Windows.Forms.RichTextBox();
             this.txtMaSinhVien = new System.Windows.Forms.TextBox();
             this.lblMaSoSinhVien = new System.Windows.Forms.Label();
-            this.btnLuu = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtgvDiemDanh = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ptbCamera = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.richTextBoxThongBao = new System.Windows.Forms.RichTextBox();
-            this.btnDiemDanh = new System.Windows.Forms.Button();
-            this.checkBoxTuDongVang = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDiemDanh)).BeginInit();
@@ -57,20 +57,29 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.checkBoxTuDongVang);
-            this.panel1.Controls.Add(this.btnDiemDanh);
-            this.panel1.Controls.Add(this.richTextBoxThongBao);
             this.panel1.Controls.Add(this.cbbCamera);
             this.panel1.Controls.Add(this.btnStop);
             this.panel1.Controls.Add(this.btnStart);
             this.panel1.Controls.Add(this.lblChonCamera);
-            this.panel1.Controls.Add(this.txtMaSinhVien);
-            this.panel1.Controls.Add(this.lblMaSoSinhVien);
             this.panel1.Controls.Add(this.btnLuu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(757, 0);
+            this.panel1.Location = new System.Drawing.Point(724, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(274, 553);
+            this.panel1.Size = new System.Drawing.Size(307, 553);
             this.panel1.TabIndex = 0;
+            // 
+            // checkBoxTuDongVang
+            // 
+            this.checkBoxTuDongVang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxTuDongVang.Checked = true;
+            this.checkBoxTuDongVang.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxTuDongVang.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxTuDongVang.Location = new System.Drawing.Point(13, 420);
+            this.checkBoxTuDongVang.Name = "checkBoxTuDongVang";
+            this.checkBoxTuDongVang.Size = new System.Drawing.Size(282, 67);
+            this.checkBoxTuDongVang.TabIndex = 47;
+            this.checkBoxTuDongVang.Text = "Tự động đánh vắng sinh viên không điểm danh";
+            this.checkBoxTuDongVang.UseVisualStyleBackColor = true;
             // 
             // cbbCamera
             // 
@@ -95,7 +104,7 @@
             this.btnStop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStop.Name = "btnStop";
             this.btnStop.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnStop.Size = new System.Drawing.Size(115, 50);
+            this.btnStop.Size = new System.Drawing.Size(148, 50);
             this.btnStop.TabIndex = 43;
             this.btnStop.Text = "Stop";
             this.btnStop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -116,7 +125,7 @@
             this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStart.Name = "btnStart";
             this.btnStart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnStart.Size = new System.Drawing.Size(115, 50);
+            this.btnStart.Size = new System.Drawing.Size(148, 50);
             this.btnStart.TabIndex = 42;
             this.btnStart.Text = "Start";
             this.btnStart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -135,31 +144,6 @@
             this.lblChonCamera.TabIndex = 40;
             this.lblChonCamera.Text = "Chọn camera";
             // 
-            // txtMaSinhVien
-            // 
-            this.txtMaSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaSinhVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtMaSinhVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMaSinhVien.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaSinhVien.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtMaSinhVien.Location = new System.Drawing.Point(9, 199);
-            this.txtMaSinhVien.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.txtMaSinhVien.Name = "txtMaSinhVien";
-            this.txtMaSinhVien.Size = new System.Drawing.Size(253, 32);
-            this.txtMaSinhVien.TabIndex = 38;
-            this.txtMaSinhVien.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaSinhVien_KeyDown);
-            // 
-            // lblMaSoSinhVien
-            // 
-            this.lblMaSoSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMaSoSinhVien.AutoSize = true;
-            this.lblMaSoSinhVien.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaSoSinhVien.Location = new System.Drawing.Point(9, 173);
-            this.lblMaSoSinhVien.Name = "lblMaSoSinhVien";
-            this.lblMaSoSinhVien.Size = new System.Drawing.Size(115, 19);
-            this.lblMaSoSinhVien.TabIndex = 39;
-            this.lblMaSoSinhVien.Text = "Mã số sinh viên";
-            // 
             // btnLuu
             // 
             this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -175,12 +159,73 @@
             this.btnLuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnLuu.Size = new System.Drawing.Size(183, 50);
+            this.btnLuu.Size = new System.Drawing.Size(216, 50);
             this.btnLuu.TabIndex = 35;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuuDiemDanh_Click);
+            // 
+            // btnDiemDanh
+            // 
+            this.btnDiemDanh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDiemDanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(200)))));
+            this.btnDiemDanh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDiemDanh.FlatAppearance.BorderSize = 0;
+            this.btnDiemDanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDiemDanh.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiemDanh.ForeColor = System.Drawing.Color.White;
+            this.btnDiemDanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDiemDanh.Location = new System.Drawing.Point(46, 359);
+            this.btnDiemDanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDiemDanh.Name = "btnDiemDanh";
+            this.btnDiemDanh.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnDiemDanh.Size = new System.Drawing.Size(127, 34);
+            this.btnDiemDanh.TabIndex = 46;
+            this.btnDiemDanh.Text = "Điểm danh";
+            this.btnDiemDanh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDiemDanh.UseVisualStyleBackColor = false;
+            this.btnDiemDanh.Click += new System.EventHandler(this.btnDiemDanh_Click);
+            // 
+            // richTextBoxThongBao
+            // 
+            this.richTextBoxThongBao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBoxThongBao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.richTextBoxThongBao.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxThongBao.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxThongBao.ForeColor = System.Drawing.Color.Black;
+            this.richTextBoxThongBao.Location = new System.Drawing.Point(8, 400);
+            this.richTextBoxThongBao.Margin = new System.Windows.Forms.Padding(5, 5, 3, 3);
+            this.richTextBoxThongBao.Name = "richTextBoxThongBao";
+            this.richTextBoxThongBao.ReadOnly = true;
+            this.richTextBoxThongBao.Size = new System.Drawing.Size(425, 99);
+            this.richTextBoxThongBao.TabIndex = 45;
+            this.richTextBoxThongBao.Text = "Kết quả";
+            // 
+            // txtMaSinhVien
+            // 
+            this.txtMaSinhVien.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMaSinhVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txtMaSinhVien.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaSinhVien.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaSinhVien.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtMaSinhVien.Location = new System.Drawing.Point(46, 318);
+            this.txtMaSinhVien.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.txtMaSinhVien.Name = "txtMaSinhVien";
+            this.txtMaSinhVien.Size = new System.Drawing.Size(286, 32);
+            this.txtMaSinhVien.TabIndex = 38;
+            this.txtMaSinhVien.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaSinhVien_KeyDown);
+            // 
+            // lblMaSoSinhVien
+            // 
+            this.lblMaSoSinhVien.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMaSoSinhVien.AutoSize = true;
+            this.lblMaSoSinhVien.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaSoSinhVien.Location = new System.Drawing.Point(46, 292);
+            this.lblMaSoSinhVien.Name = "lblMaSoSinhVien";
+            this.lblMaSoSinhVien.Size = new System.Drawing.Size(115, 19);
+            this.lblMaSoSinhVien.TabIndex = 39;
+            this.lblMaSoSinhVien.Text = "Mã số sinh viên";
             // 
             // panel2
             // 
@@ -188,7 +233,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(299, 553);
+            this.panel2.Size = new System.Drawing.Size(285, 553);
             this.panel2.TabIndex = 1;
             // 
             // dtgvDiemDanh
@@ -228,81 +273,37 @@
             this.dtgvDiemDanh.RowHeadersWidth = 51;
             this.dtgvDiemDanh.RowTemplate.Height = 24;
             this.dtgvDiemDanh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dtgvDiemDanh.Size = new System.Drawing.Size(280, 527);
+            this.dtgvDiemDanh.Size = new System.Drawing.Size(266, 527);
             this.dtgvDiemDanh.TabIndex = 43;
             this.dtgvDiemDanh.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvDiemDanh_CellContentClick);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.ptbCamera);
+            this.panel3.Controls.Add(this.btnDiemDanh);
+            this.panel3.Controls.Add(this.txtMaSinhVien);
+            this.panel3.Controls.Add(this.richTextBoxThongBao);
+            this.panel3.Controls.Add(this.lblMaSoSinhVien);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(299, 0);
+            this.panel3.Location = new System.Drawing.Point(285, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(458, 553);
+            this.panel3.Size = new System.Drawing.Size(439, 553);
             this.panel3.TabIndex = 2;
             // 
             // ptbCamera
             // 
-            this.ptbCamera.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbCamera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbCamera.Location = new System.Drawing.Point(31, 87);
+            this.ptbCamera.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ptbCamera.Location = new System.Drawing.Point(0, 0);
             this.ptbCamera.Name = "ptbCamera";
-            this.ptbCamera.Size = new System.Drawing.Size(400, 400);
-            this.ptbCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.ptbCamera.Size = new System.Drawing.Size(439, 273);
+            this.ptbCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ptbCamera.TabIndex = 0;
             this.ptbCamera.TabStop = false;
             // 
             // timer1
             // 
             this.timer1.Interval = 1000;
-            // 
-            // richTextBoxThongBao
-            // 
-            this.richTextBoxThongBao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBoxThongBao.BackColor = System.Drawing.SystemColors.Control;
-            this.richTextBoxThongBao.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxThongBao.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxThongBao.Location = new System.Drawing.Point(13, 281);
-            this.richTextBoxThongBao.Margin = new System.Windows.Forms.Padding(5, 5, 3, 3);
-            this.richTextBoxThongBao.Name = "richTextBoxThongBao";
-            this.richTextBoxThongBao.ReadOnly = true;
-            this.richTextBoxThongBao.Size = new System.Drawing.Size(233, 97);
-            this.richTextBoxThongBao.TabIndex = 45;
-            this.richTextBoxThongBao.Text = ".....................................";
-            // 
-            // btnDiemDanh
-            // 
-            this.btnDiemDanh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDiemDanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(119)))), ((int)(((byte)(200)))));
-            this.btnDiemDanh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnDiemDanh.FlatAppearance.BorderSize = 0;
-            this.btnDiemDanh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDiemDanh.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiemDanh.ForeColor = System.Drawing.Color.White;
-            this.btnDiemDanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiemDanh.Location = new System.Drawing.Point(9, 240);
-            this.btnDiemDanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDiemDanh.Name = "btnDiemDanh";
-            this.btnDiemDanh.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnDiemDanh.Size = new System.Drawing.Size(94, 34);
-            this.btnDiemDanh.TabIndex = 46;
-            this.btnDiemDanh.Text = "Điểm danh";
-            this.btnDiemDanh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDiemDanh.UseVisualStyleBackColor = false;
-            this.btnDiemDanh.Click += new System.EventHandler(this.btnDiemDanh_Click);
-            // 
-            // checkBoxTuDongVang
-            // 
-            this.checkBoxTuDongVang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxTuDongVang.Checked = true;
-            this.checkBoxTuDongVang.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxTuDongVang.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.checkBoxTuDongVang.Location = new System.Drawing.Point(13, 420);
-            this.checkBoxTuDongVang.Name = "checkBoxTuDongVang";
-            this.checkBoxTuDongVang.Size = new System.Drawing.Size(249, 67);
-            this.checkBoxTuDongVang.TabIndex = 47;
-            this.checkBoxTuDongVang.Text = "Tự động đánh vắng sinh viên không điểm danh";
-            this.checkBoxTuDongVang.UseVisualStyleBackColor = true;
             // 
             // formDiemDanhMaVach
             // 
@@ -325,6 +326,7 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDiemDanh)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCamera)).EndInit();
             this.ResumeLayout(false);
 

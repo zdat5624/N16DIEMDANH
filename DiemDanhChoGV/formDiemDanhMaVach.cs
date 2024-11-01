@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using ZXing; //Thu vien doc barcode
 using AForge.Video;
 using AForge.Video.DirectShow;
+using System.Text.RegularExpressions;
 
 
 namespace DiemDanhChoGV
@@ -167,55 +168,37 @@ namespace DiemDanhChoGV
         }
 
 
-        //private void DiemDanhSinhVien(string maSinhVien)
-        //{
-        //    if (string.IsNullOrEmpty(maSinhVien))
-        //    {
-        //        MessageBox.Show("Vui lòng nhập đầy đủ thông tin mã sinh viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-
-        //    bool flag = false;
-        //    // Duyệt qua từng hàng của DataGridView để tìm sinh viên có mã số phù hợp
-        //    foreach (DataGridViewRow row in dtgvDiemDanh.Rows)
-        //    {
-        //        // Kiểm tra nếu mã sinh viên trong hàng trùng với mã được truyền vào
-        //        if (row.Cells["MSSV"].Value != null && (row.Cells["MSSV"].Value.ToString()).Equals(maSinhVien))
-        //        {
-        //            row.Cells["coMat"].Value = true;
-        //            row.Cells["vangMat"].Value = false;
-        //            flag = true;
-        //            break;
-        //        }
-        //    }
-
-        //    if (flag)
-        //    {
-        //        richTextBoxThongBao.Text = $"Thành công! Điểm danh sinh viên '{maSinhVien}'";
-        //        richTextBoxThongBao.BackColor = Color.Green;
-        //        txtMaSinhVien.Clear();
-        //    }
-        //    else
-        //    {
-        //        richTextBoxThongBao.Text = $"Thất bại! Không tìm thấy sinh viên '{maSinhVien}'";
-        //        richTextBoxThongBao.BackColor = Color.Red;
-        //    }
-        //}
-
         private void DiemDanhSinhVien(string maSinhVien)
         {
             if (string.IsNullOrEmpty(maSinhVien))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin mã sinh viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                richTextBoxThongBao.Text = $"Thất bại! Không tìm thấy sinh viên '{maSinhVien}'";
+                richTextBoxThongBao.BackColor = Color.Red;
                 return;
             }
 
-            var row = dtgvDiemDanh.Rows.Cast<DataGridViewRow>().FirstOrDefault(r => r.Cells["MSSV"].Value?.ToString() == maSinhVien);
-
-            if (row != null)
+            bool flag = false;
+            // Duyệt qua từng hàng của DataGridView để tìm sinh viên có mã số phù hợp
+            foreach (DataGridViewRow row in dtgvDiemDanh.Rows)
             {
-                row.Cells["coMat"].Value = true;
-                row.Cells["vangMat"].Value = false;
+                if (row.Cells["MSSV"].Value != null && row.Cells["MSSV"].Value.ToString() == maSinhVien)
+                {
+                    // Bỏ chọn ô nếu ô "vangMat" đang được chọn
+                    if (dtgvDiemDanh.CurrentCell != null && dtgvDiemDanh.CurrentCell == row.Cells["vangMat"])
+                    {
+                        dtgvDiemDanh.CurrentCell = null;
+                    }
+
+                    // Đặt trạng thái có mặt và vắng mặt
+                    row.Cells["coMat"].Value = true;
+                    row.Cells["vangMat"].Value = false;
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (flag)
+            {
                 richTextBoxThongBao.Text = $"Thành công! Điểm danh sinh viên '{maSinhVien}'";
                 richTextBoxThongBao.BackColor = Color.Green;
                 txtMaSinhVien.Clear();
@@ -225,8 +208,10 @@ namespace DiemDanhChoGV
                 richTextBoxThongBao.Text = $"Thất bại! Không tìm thấy sinh viên '{maSinhVien}'";
                 richTextBoxThongBao.BackColor = Color.Red;
             }
-            
         }
+
+
+
 
         #endregion
 
@@ -237,18 +222,19 @@ namespace DiemDanhChoGV
             if (e.RowIndex >= 0)
             {
                 // Kiểm tra nếu người dùng đã nhấn vào cột Có mặt
-                if (e.ColumnIndex == dtgvDiemDanh.Columns["coMat"].Index)
+                if (e.ColumnIndex == dtgvDiemDanh.Columns["coMat"].Index && (bool)dtgvDiemDanh.Rows[e.RowIndex].Cells["vangMat"].Value == true)
                 {
                     // Đặt tất cả ô Vắng mặt trong cùng hàng thành false
                     dtgvDiemDanh.Rows[e.RowIndex].Cells["vangMat"].Value = false;
-                }
-
-                // Kiểm tra nếu người dùng đã nhấn vào cột Vắng mặt
-                if (e.ColumnIndex == dtgvDiemDanh.Columns["vangMat"].Index)
+                } // Kiểm tra nếu người dùng đã nhấn vào cột Vắng mặt
+                else if (e.ColumnIndex == dtgvDiemDanh.Columns["vangMat"].Index && (bool)dtgvDiemDanh.Rows[e.RowIndex].Cells["coMat"].Value == true)
                 {
                     // Đặt tất cả ô Có mặt trong cùng hàng thành false
                     dtgvDiemDanh.Rows[e.RowIndex].Cells["coMat"].Value = false;
                 }
+
+                
+
             }
         }
 
@@ -290,104 +276,91 @@ namespace DiemDanhChoGV
             MessageBox.Show("Điểm danh đã được lưu.");
         }
 
-        private int frameCounter = 0;
-        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            //frameCounter++;
-
-            //// Đọc mã vạch mỗi 3 khung hình để cải thiện tốc độ
-            //if (frameCounter % 2 != 0)
-            //    return;
-
-            //frameCounter = 0; // Đặt lại bộ đếm khung hình sau khi đọc
-
-            using (Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone())
-            {
-                BarcodeReader reader = new BarcodeReader
-                {
-                    Options = new ZXing.Common.DecodingOptions
-                    {
-                        PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.CODE_39, BarcodeFormat.CODE_128 }
-                    }
-                };
-
-                var result = reader.Decode(bitmap);
-                if (result != null)
-                {
-                    txtMaSinhVien.Invoke(new MethodInvoker(delegate
-                    {
-                        string maSV = result.Text;
-                        txtMaSinhVien.Text = maSV;
-                        DiemDanhSinhVien(maSV);
-                    }));
-                }
-
-                if (ptbCamera.Image != null)
-                {
-                    ptbCamera.Image.Dispose(); // Giải phóng hình ảnh hiện tại trước khi cập nhật
-                }
-
-                ptbCamera.Image = (Bitmap)bitmap.Clone();
-            }
-        }
-
         //private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         //{
-        //    frameCounter++;
-
-        //    // Đọc mã vạch mỗi 3 khung hình
-        //    if (frameCounter % 3 != 0)
-        //        return;
-
-        //    frameCounter = 0;
 
         //    using (Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone())
         //    {
-        //        // Xác định vùng giữa của ảnh
-        //        int centerX = bitmap.Width / 2;
-        //        int centerY = bitmap.Height / 2;
-        //        int regionWidth = bitmap.Width / 4; // Kích thước vùng giữa (có thể điều chỉnh)
-        //        int regionHeight = bitmap.Height / 4;
+        //        //BarcodeReader reader = new BarcodeReader
+        //        //{
+        //        //    Options = new ZXing.Common.DecodingOptions
+        //        //    {
+        //        //        PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.CODE_39, BarcodeFormat.CODE_128 }
+        //        //    }
+        //        //};
 
-        //        Rectangle centerRegion = new Rectangle(
-        //            centerX - regionWidth / 2,
-        //            centerY - regionHeight / 2,
-        //            regionWidth,
-        //            regionHeight
-        //        );
+        //        BarcodeReader reader = new BarcodeReader();
 
-        //        using (Bitmap croppedBitmap = bitmap.Clone(centerRegion, bitmap.PixelFormat))
+        //        var result = reader.Decode(bitmap);
+        //        if (result != null)
         //        {
-        //            BarcodeReader reader = new BarcodeReader
+        //            txtMaSinhVien.Invoke(new MethodInvoker(delegate
         //            {
-        //                Options = new ZXing.Common.DecodingOptions
-        //                {
-        //                    PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.CODE_39, BarcodeFormat.CODE_128 }
-        //                }
-        //            };
-
-        //            var result = reader.Decode(croppedBitmap);
-        //            if (result != null)
-        //            {
-        //                txtMaSinhVien.Invoke(new MethodInvoker(delegate
-        //                {
-        //                    string maSV = result.Text;
-        //                    txtMaSinhVien.Text = maSV;
-        //                    DiemDanhSinhVien(maSV);
-        //                }));
-        //            }
-
-        //            // Cập nhật ảnh hiện tại trong PictureBox
-        //            if (ptbCamera.Image != null)
-        //            {
-        //                ptbCamera.Image.Dispose();
-        //            }
-        //            ptbCamera.Image = (Bitmap)bitmap.Clone();
+        //                string maSV = result.Text;
+        //                txtMaSinhVien.Text = maSV;
+        //                DiemDanhSinhVien(maSV);
+        //            }));
         //        }
+
+        //        if (ptbCamera.Image != null)
+        //        {
+        //            ptbCamera.Image.Dispose(); // Giải phóng hình ảnh hiện tại trước khi cập nhật
+        //        }
+
+        //        ptbCamera.Image = (Bitmap)bitmap.Clone();
         //    }
         //}
 
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            using (Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone())
+            {
+                bitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
+                // Xác định vùng trung tâm lớn hơn của ảnh
+                int centerX = bitmap.Width / 2;
+                int centerY = bitmap.Height / 2;
+                int regionWidth = (int)(bitmap.Width * 0.8);
+                int regionHeight = (int)(bitmap.Height * 0.8);
+
+                Rectangle centerRegion = new Rectangle(
+                    centerX - regionWidth / 2,
+                    centerY - regionHeight / 2,
+                    regionWidth,
+                    regionHeight
+                );
+
+                using (Bitmap croppedBitmap = bitmap.Clone(centerRegion, bitmap.PixelFormat))
+                {
+                    BarcodeReader reader = new BarcodeReader
+                    {
+                        Options = new ZXing.Common.DecodingOptions
+                        {
+                            PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.CODE_39, BarcodeFormat.CODE_128 },
+                            TryHarder = true // Kích hoạt tính năng nhận diện tốt hơn
+                        }
+                    };
+
+                    var result = reader.Decode(croppedBitmap);
+                    if (result != null)
+                    {
+                        txtMaSinhVien.Invoke(new MethodInvoker(delegate
+                        {
+                            string maSV = result.Text;
+                            txtMaSinhVien.Text = maSV;
+                            DiemDanhSinhVien(maSV);
+                        }));
+                    }
+
+                    if (ptbCamera.Image != null)
+                    {
+                        ptbCamera.Image.Dispose();
+                    }
+
+                    ptbCamera.Image = (Bitmap)croppedBitmap.Clone();
+                }
+            }
+        }
 
 
 
