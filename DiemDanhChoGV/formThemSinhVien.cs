@@ -315,7 +315,7 @@ namespace DiemDanhChoGV
             }
 
             // Hiển thị xem trước và xác nhận
-            DialogResult result = MessageBox.Show($"Dữ liệu dán:\n\n{clipboardData}\n\nBạn có muốn thêm không? Đảm bảo hai cột mã số và họ tên phải liên kề trong excel", "Xác nhận", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show($"Bạn có muốn thêm không? Đảm bảo hai cột mã số và họ tên phải liên kề trong excel", "Xác nhận", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
